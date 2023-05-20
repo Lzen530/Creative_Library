@@ -24,6 +24,22 @@ namespace Creative_Library
 
         string connectionstring = "Server=localhost; Database=회원; Uid=Lzen; Pwd=!fmwps530^^;";
 
+        private void LoadDataIntoDataGridView()
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionstring))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(SqlQuery, connection);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable datatable = new DataTable();
+                adapter.Fill(datatable);
+
+                dataGridView1.DataSource = datatable;
+            }
+        }
+
         private void button4_Click(object sender, EventArgs e) // 회원 관리 버튼
         {
             User_Manage UM = new User_Manage();
@@ -33,9 +49,9 @@ namespace Creative_Library
 
         private void button1_Click(object sender, EventArgs e) // 도서 추가/수정/삭제 on off 기능
         {
-            button3.Enabled = !button3.Enabled;
-            button5.Enabled = !button5.Enabled;
-            button6.Enabled = !button6.Enabled;
+            DELETE_AMD.Enabled = !DELETE_AMD.Enabled;
+            INSERT_AMD.Enabled = !INSERT_AMD.Enabled;
+            UPDATE_AMD.Enabled = !UPDATE_AMD.Enabled;
 
             UpdateButtonStates();
         }
@@ -73,8 +89,12 @@ namespace Creative_Library
 
         private void button1_Click_1(object sender, EventArgs e) // 도서 대출/반납 on off 기능
         {
-            button7.Enabled = !button7.Enabled;
-            button8.Enabled = !button8.Enabled;
+            LOAN_AMD.Enabled = !LOAN_AMD.Enabled;
+            RETURN_AMD.Enabled = !RETURN_AMD.Enabled;
+
+            USERNAME_AMD.Enabled = true;
+            USERID_AMD.Enabled = true;
+            PHONE_AMD.Enabled = true;
 
             UpdateButtonStates();
         }
@@ -86,80 +106,13 @@ namespace Creative_Library
             PUBLISHER_AMD.Enabled = button1.Enabled || button2.Enabled;
             BOOKNUMBER_AMD.Enabled = button1.Enabled || button2.Enabled;
 
-            if (!button3.Enabled && !button5.Enabled && !button6.Enabled && !button7.Enabled && !button8.Enabled)
+            if (!DELETE_AMD.Enabled && !INSERT_AMD.Enabled && !UPDATE_AMD.Enabled && !LOAN_AMD.Enabled && !RETURN_AMD.Enabled)
             {
                 BOOKNAME_AMD.Enabled = false;
                 AUTHOR_AMD.Enabled = false;
                 PUBLISHER_AMD.Enabled = false;
                 BOOKNUMBER_AMD.Enabled = false;
             }
-        }
-
-        private void button5_Click(object sender, EventArgs e) //추가
-        {
-            string BookName = BOOKNAME_AMD.Text.Trim();
-            string Author = AUTHOR_AMD.Text.Trim();
-            string Publisher = PUBLISHER_AMD.Text.Trim();
-            string BookNumber = BOOKNUMBER_AMD.Text.Trim();
-
-            if (string.IsNullOrEmpty(BookName) || string.IsNullOrEmpty(Author) || string.IsNullOrEmpty(Publisher) || string.IsNullOrEmpty(BookNumber))
-            {
-                MessageBox.Show("추가시킬 도서의 정보가 부족합니다.");
-                return;
-            }
-
-            string QueryBook = "INSERT INTO 도서(도서이름, 저자, 출판사, 고유번호) VALUES(@Bookname, @Author, @Publisher, @Booknumber)";
-
-            try
-            {
-                MySqlConnection connection = new MySqlConnection(connectionstring);
-                connection.Open();
-
-                MySqlCommand command = new MySqlCommand(QueryBook, connection);
-                command.Parameters.AddWithValue("@Bookname", BookName);
-                command.Parameters.AddWithValue("@Author", Author);
-                command.Parameters.AddWithValue("@Publisher", Publisher);
-                command.Parameters.AddWithValue("@Booknumber", BookNumber);
-
-                int rowsAffected = command.ExecuteNonQuery();
-
-                MessageBox.Show("도서가 추가되었습니다.");
-
-
-                command = new MySqlCommand(SqlQuery, connection);
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable datatable = new DataTable();
-                adapter.Fill(datatable);
-
-
-                dataGridView1.DataSource = datatable;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void button6_Click(object sender, EventArgs e) // 수정
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e) // 삭제
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e) // 대출
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e) // 반납
-        {
-
         }
 
         private void button9_Click(object sender, EventArgs e) // 연체 관리
@@ -183,6 +136,139 @@ namespace Creative_Library
                 MD.Show();
                 this.Hide();
             }
+        }
+
+        private void INSERT_AMD_Click(object sender, EventArgs e) // 추가
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionstring);
+                connection.Open();
+
+                string BookName = BOOKNAME_AMD.Text.Trim();
+                string Author = AUTHOR_AMD.Text.Trim();
+                string Publisher = PUBLISHER_AMD.Text.Trim();
+                string BookNumber = BOOKNUMBER_AMD.Text.Trim();
+
+                // 고유번호 중복 예외 처리
+                string QueryBookNumber = "SELECT COUNT(*) FROM 도서 WHERE 고유번호 = @BookNumber";
+
+                MySqlCommand command1 = new MySqlCommand(QueryBookNumber, connection);
+                command1.Parameters.AddWithValue("@BookNumber", BookNumber);
+
+                int duplicateCount = Convert.ToInt32(command1.ExecuteScalar());
+
+                if (duplicateCount > 0)
+                {
+                    MessageBox.Show("고유번호가 중복되었습니다.");
+                    return;
+                }
+
+
+                if (string.IsNullOrEmpty(BookName) || string.IsNullOrEmpty(Author) || string.IsNullOrEmpty(Publisher) || string.IsNullOrEmpty(BookNumber))
+                {
+                    MessageBox.Show("추가시킬 도서의 정보가 부족합니다.");
+                    return;
+                }
+
+                string QueryBook = "INSERT INTO 도서(도서이름, 저자, 출판사, 고유번호) VALUES(@Bookname, @Author, @Publisher, @Booknumber)";
+            
+                MySqlCommand command = new MySqlCommand(QueryBook, connection);
+                command.Parameters.AddWithValue("@Bookname", BookName);
+                command.Parameters.AddWithValue("@Author", Author);
+                command.Parameters.AddWithValue("@Publisher", Publisher);
+                command.Parameters.AddWithValue("@Booknumber", BookNumber);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                MessageBox.Show("도서가 추가되었습니다.");
+
+
+                LoadDataIntoDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void UPDATE_AMD_Click(object sender, EventArgs e) // 수정
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    // 선택한 행의 인덱스 가져오기
+                    DataGridViewRow rowIndex = dataGridView1.SelectedRows[0];
+
+                    // 2. 데이터 가져오기
+                    // 바뀌어야할 정보1
+                    string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
+
+                    // 바꿀 정보 4
+                    string booknumber = BOOKNUMBER_AMD.Text;
+                    string bookname = BOOKNAME_AMD.Text;
+                    string author = AUTHOR_AMD.Text;
+                    string publisher = PUBLISHER_AMD.Text;
+
+                    // 3. 수정 버튼 이벤트 처리
+                    // 가져온 값을 사용하여 데이터 수정 작업 수행 
+
+                    // 4. 예외 처리
+                    // 고유번호는 고유한 하나의 정보만을 가질 수 있기에 이미 존재하는 고유번호로 수정하려 시도하면 "이미 존재하는 고유번호입니다." 라는 메시지가 나와야한다.
+
+                    if (string.IsNullOrEmpty(booknumber) || string.IsNullOrEmpty(bookname) || string.IsNullOrEmpty(author) || string.IsNullOrEmpty(publisher))
+                    {
+                        MessageBox.Show("수정할 도서의 정보가 부족합니다.");
+                        return;
+                    }
+
+                    // 5. 데이터 수정
+                    // 예시: 데이터베이스에서 해당 열 값을 수정
+                    string query = "UPDATE 도서 SET 고유번호 = @고유번호, 도서이름 = @도서이름, 저자 = @저자, 출판사 = @출판사 WHERE 고유번호 = @bookNumber";
+
+                    using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                    {
+                        connection.Open();
+
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@고유번호", booknumber);
+                        command.Parameters.AddWithValue("@도서이름", bookname);
+                        command.Parameters.AddWithValue("@저자", author);
+                        command.Parameters.AddWithValue("@출판사", publisher);
+                        command.Parameters.AddWithValue("@bookNumber", bookNumber);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // 6. 데이터그리드뷰 업데이트
+                    // 데이터를 다시 가져와서 데이터그리드뷰에 반영
+                    LoadDataIntoDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("수정할 행을 선택해주세요.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DELETE_AMD_Click(object sender, EventArgs e) // 삭제
+        {
+
+        }
+
+        private void LOAN_AMD_Click(object sender, EventArgs e) // 대출
+        {
+
+        }
+
+        private void RETURN_AMD_Click(object sender, EventArgs e) // 반납
+        {
+
         }
     }
 }
