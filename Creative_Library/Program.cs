@@ -16,7 +16,7 @@ namespace Creative_Library
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Display());
+            Application.Run(new Not_User_Search_Book());
         }
     }
 }

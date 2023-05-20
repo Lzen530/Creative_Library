@@ -42,5 +42,16 @@ namespace Creative_Library
 
             dataGridView1.DataSource = table;
         }
+
+        private void button2_Click(object sender, EventArgs e) // 로그아웃
+        {
+            DialogResult result = MessageBox.Show("정말로 로그아웃하시겠습니까?", "로그아웃", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                Main_Display MD = new Main_Display();
+                MD.Show();
+                this.Hide();
+            }
+        }
     }
 }

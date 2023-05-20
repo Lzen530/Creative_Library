@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.User_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.e_Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SEARCH_USER = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -51,20 +52,19 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SEARCH_BOOK = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.User_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.e_Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Book_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Book_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Loan_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Return_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMD = new System.Windows.Forms.Button();
+            this.UM = new System.Windows.Forms.Button();
+            this.BM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -85,44 +85,43 @@
             this.dataGridView1.Size = new System.Drawing.Size(532, 194);
             this.dataGridView1.TabIndex = 8;
             // 
-            // button10
+            // User_ID
             // 
-            this.button10.Location = new System.Drawing.Point(12, 12);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(74, 24);
-            this.button10.TabIndex = 70;
-            this.button10.Text = "도서 관리";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.User_ID.Frozen = true;
+            this.User_ID.HeaderText = "아이디";
+            this.User_ID.Name = "User_ID";
+            this.User_ID.ReadOnly = true;
             // 
-            // button9
+            // User_Name
             // 
-            this.button9.Enabled = false;
-            this.button9.Location = new System.Drawing.Point(172, 12);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(74, 24);
-            this.button9.TabIndex = 69;
-            this.button9.Text = "연체 관리";
-            this.button9.UseVisualStyleBackColor = true;
+            this.User_Name.Frozen = true;
+            this.User_Name.HeaderText = "회원 이름";
+            this.User_Name.Name = "User_Name";
+            this.User_Name.ReadOnly = true;
             // 
-            // button4
+            // Phone_Number
             // 
-            this.button4.Location = new System.Drawing.Point(92, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(74, 24);
-            this.button4.TabIndex = 68;
-            this.button4.Text = "회원 관리";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Phone_Number.Frozen = true;
+            this.Phone_Number.HeaderText = "전화번호";
+            this.Phone_Number.Name = "Phone_Number";
+            this.Phone_Number.ReadOnly = true;
             // 
-            // button3
+            // e_Mail
             // 
-            this.button3.Location = new System.Drawing.Point(656, 89);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 26);
-            this.button3.TabIndex = 79;
-            this.button3.Text = "검색";
-            this.button3.UseVisualStyleBackColor = true;
+            this.e_Mail.Frozen = true;
+            this.e_Mail.HeaderText = "메일 주소";
+            this.e_Mail.Name = "e_Mail";
+            this.e_Mail.ReadOnly = true;
+            // 
+            // SEARCH_USER
+            // 
+            this.SEARCH_USER.Location = new System.Drawing.Point(656, 89);
+            this.SEARCH_USER.Name = "SEARCH_USER";
+            this.SEARCH_USER.Size = new System.Drawing.Size(51, 26);
+            this.SEARCH_USER.TabIndex = 79;
+            this.SEARCH_USER.Text = "검색";
+            this.SEARCH_USER.UseVisualStyleBackColor = true;
+            this.SEARCH_USER.Click += new System.EventHandler(this.SEARCH_USER_Click);
             // 
             // label9
             // 
@@ -268,14 +267,14 @@
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 83;
             // 
-            // button2
+            // SEARCH_BOOK
             // 
-            this.button2.Location = new System.Drawing.Point(656, 355);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 26);
-            this.button2.TabIndex = 82;
-            this.button2.Text = "검색";
-            this.button2.UseVisualStyleBackColor = true;
+            this.SEARCH_BOOK.Location = new System.Drawing.Point(656, 355);
+            this.SEARCH_BOOK.Name = "SEARCH_BOOK";
+            this.SEARCH_BOOK.Size = new System.Drawing.Size(51, 26);
+            this.SEARCH_BOOK.TabIndex = 82;
+            this.SEARCH_BOOK.Text = "검색";
+            this.SEARCH_BOOK.UseVisualStyleBackColor = true;
             // 
             // comboBox3
             // 
@@ -310,34 +309,6 @@
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(750, 234);
             this.dataGridView2.TabIndex = 93;
-            // 
-            // User_ID
-            // 
-            this.User_ID.Frozen = true;
-            this.User_ID.HeaderText = "아이디";
-            this.User_ID.Name = "User_ID";
-            this.User_ID.ReadOnly = true;
-            // 
-            // User_Name
-            // 
-            this.User_Name.Frozen = true;
-            this.User_Name.HeaderText = "회원 이름";
-            this.User_Name.Name = "User_Name";
-            this.User_Name.ReadOnly = true;
-            // 
-            // Phone_Number
-            // 
-            this.Phone_Number.Frozen = true;
-            this.Phone_Number.HeaderText = "전화번호";
-            this.Phone_Number.Name = "Phone_Number";
-            this.Phone_Number.ReadOnly = true;
-            // 
-            // e_Mail
-            // 
-            this.e_Mail.Frozen = true;
-            this.e_Mail.HeaderText = "메일 주소";
-            this.e_Mail.Name = "e_Mail";
-            this.e_Mail.ReadOnly = true;
             // 
             // Book_Name
             // 
@@ -384,11 +355,44 @@
             this.Return_Date.ReadOnly = true;
             this.Return_Date.Width = 120;
             // 
+            // AMD
+            // 
+            this.AMD.Location = new System.Drawing.Point(14, 12);
+            this.AMD.Name = "AMD";
+            this.AMD.Size = new System.Drawing.Size(74, 24);
+            this.AMD.TabIndex = 94;
+            this.AMD.Text = "도서 관리";
+            this.AMD.UseVisualStyleBackColor = true;
+            this.AMD.Click += new System.EventHandler(this.AMD_Click);
+            // 
+            // UM
+            // 
+            this.UM.Location = new System.Drawing.Point(94, 12);
+            this.UM.Name = "UM";
+            this.UM.Size = new System.Drawing.Size(74, 24);
+            this.UM.TabIndex = 95;
+            this.UM.Text = "회원 관리";
+            this.UM.UseVisualStyleBackColor = true;
+            this.UM.Click += new System.EventHandler(this.UM_Click);
+            // 
+            // BM
+            // 
+            this.BM.Enabled = false;
+            this.BM.Location = new System.Drawing.Point(174, 12);
+            this.BM.Name = "BM";
+            this.BM.Size = new System.Drawing.Size(74, 24);
+            this.BM.TabIndex = 96;
+            this.BM.Text = "연체 관리";
+            this.BM.UseVisualStyleBackColor = true;
+            // 
             // Book_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 637);
+            this.Controls.Add(this.BM);
+            this.Controls.Add(this.UM);
+            this.Controls.Add(this.AMD);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox4);
@@ -400,10 +404,10 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.SEARCH_BOOK);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.SEARCH_USER);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label15);
@@ -412,9 +416,6 @@
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Book_Manage";
             this.Text = "Book_Manage";
@@ -429,10 +430,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button SEARCH_USER;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label15;
@@ -451,7 +449,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SEARCH_BOOK;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -465,5 +463,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Book_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Loan_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Return_Date;
+        private System.Windows.Forms.Button AMD;
+        private System.Windows.Forms.Button UM;
+        private System.Windows.Forms.Button BM;
     }
 }

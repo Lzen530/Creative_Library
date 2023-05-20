@@ -29,24 +29,15 @@ namespace Creative_Library
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.TextBox();
             this.PW = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.BACK = new System.Windows.Forms.Button();
+            this.LOGIN = new System.Windows.Forms.Button();
+            this.SIGNUP = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(92, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 24);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "로그인";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -77,21 +68,8 @@ namespace Creative_Library
             // 
             this.PW.Location = new System.Drawing.Point(92, 145);
             this.PW.Name = "PW";
-            this.PW.PasswordChar = '*';
             this.PW.Size = new System.Drawing.Size(119, 21);
             this.PW.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(120, 225);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "회원가입";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // label4
             // 
@@ -103,34 +81,68 @@ namespace Creative_Library
             this.label4.TabIndex = 7;
             this.label4.Text = "도서 관리 프로그램";
             // 
+            // BACK
+            // 
+            this.BACK.Location = new System.Drawing.Point(12, 272);
+            this.BACK.Name = "BACK";
+            this.BACK.Size = new System.Drawing.Size(67, 20);
+            this.BACK.TabIndex = 8;
+            this.BACK.Text = "뒤로가기";
+            this.BACK.UseVisualStyleBackColor = true;
+            this.BACK.Click += new System.EventHandler(this.BACK_Click);
+            // 
+            // LOGIN
+            // 
+            this.LOGIN.Location = new System.Drawing.Point(92, 188);
+            this.LOGIN.Name = "LOGIN";
+            this.LOGIN.Size = new System.Drawing.Size(119, 24);
+            this.LOGIN.TabIndex = 9;
+            this.LOGIN.Text = "로그인";
+            this.LOGIN.UseVisualStyleBackColor = true;
+            this.LOGIN.Click += new System.EventHandler(this.LOGIN_Click);
+            // 
+            // SIGNUP
+            // 
+            this.SIGNUP.AutoSize = true;
+            this.SIGNUP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SIGNUP.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.SIGNUP.Location = new System.Drawing.Point(120, 227);
+            this.SIGNUP.Name = "SIGNUP";
+            this.SIGNUP.Size = new System.Drawing.Size(53, 12);
+            this.SIGNUP.TabIndex = 10;
+            this.SIGNUP.Text = "회원가입";
+            this.SIGNUP.Click += new System.EventHandler(this.SIGNUP_Click);
+            // 
             // Main_Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 304);
+            this.Controls.Add(this.SIGNUP);
+            this.Controls.Add(this.LOGIN);
+            this.Controls.Add(this.BACK);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.PW);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Name = "Main_Display";
             this.Text = "Main_Display";
+            this.Load += new System.EventHandler(this.Main_Display_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ID;
         private System.Windows.Forms.TextBox PW;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BACK;
+        private System.Windows.Forms.Button LOGIN;
+        private System.Windows.Forms.Label SIGNUP;
     }
 }
 

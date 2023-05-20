@@ -29,17 +29,22 @@ namespace Creative_Library
             dataGridView1.DataSource = table;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void SEARCH_USER_Click(object sender, EventArgs e) // 회원 검색
         {
-            User_Manage UM = new User_Manage();
-            UM.Show();
-            this.Hide();
+
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void AMD_Click(object sender, EventArgs e) // 관리자 메인 화면 버튼 (도서 관리)
         {
             Admin_Main_Display AMD = new Admin_Main_Display();
             AMD.Show();
+            this.Hide();
+        }
+
+        private void UM_Click(object sender, EventArgs e) // 회원 관리 버튼
+        {
+            User_Manage UM = new User_Manage();
+            UM.Show();
             this.Hide();
         }
     }

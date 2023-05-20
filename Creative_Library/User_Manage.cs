@@ -37,18 +37,28 @@ namespace Creative_Library
             dataGridView1.DataSource = table;
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void AMD_Click(object sender, EventArgs e) // 관리자 메인 화면으로 이동 (도서 관리 화면)
+        {
+            Admin_Main_Display AMD = new Admin_Main_Display();
+            AMD.Show();
+            this.Hide();
+        }
+
+        private void UM_Click(object sender, EventArgs e) // 회원 관리 버튼
+        {
+            // 본인 폼을 가리키는 역할이라 비활성화
+        }
+
+        private void BM_Click(object sender, EventArgs e)
         {
             Book_Manage BM = new Book_Manage();
             BM.Show();
             this.Hide();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void SEARCH_Click(object sender, EventArgs e) // 회원 검색 버튼
         {
-            Admin_Main_Display AMD = new Admin_Main_Display();
-            AMD.Show();
-            this.Hide();
+
         }
     }
 }

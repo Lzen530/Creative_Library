@@ -33,14 +33,6 @@ namespace Creative_Library
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Book_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Book_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Book_Loans = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Loans_User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Loans_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Return_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -56,13 +48,13 @@ namespace Creative_Library
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.BOOKNAME_AMD = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.AUTHOR_AMD = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.PUBLISHER_AMD = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.BOOKNUMBER_AMD = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -73,8 +65,7 @@ namespace Creative_Library
             this.button10 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +82,7 @@ namespace Creative_Library
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(1127, 421);
+            this.button3.Location = new System.Drawing.Point(1127, 391);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(70, 31);
             this.button3.TabIndex = 5;
@@ -113,15 +104,6 @@ namespace Creative_Library
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Book_Name,
-            this.Author,
-            this.Publisher,
-            this.Book_Number,
-            this.Book_Loans,
-            this.Loans_User,
-            this.Loans_Date,
-            this.Return_Date});
             this.dataGridView1.Location = new System.Drawing.Point(12, 106);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -129,65 +111,6 @@ namespace Creative_Library
             this.dataGridView1.Size = new System.Drawing.Size(947, 404);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // Book_Name
-            // 
-            this.Book_Name.Frozen = true;
-            this.Book_Name.HeaderText = "책 이름";
-            this.Book_Name.Name = "Book_Name";
-            this.Book_Name.ReadOnly = true;
-            this.Book_Name.Width = 150;
-            // 
-            // Author
-            // 
-            this.Author.Frozen = true;
-            this.Author.HeaderText = "저자";
-            this.Author.Name = "Author";
-            this.Author.ReadOnly = true;
-            // 
-            // Publisher
-            // 
-            this.Publisher.Frozen = true;
-            this.Publisher.HeaderText = "출판사";
-            this.Publisher.Name = "Publisher";
-            this.Publisher.ReadOnly = true;
-            // 
-            // Book_Number
-            // 
-            this.Book_Number.Frozen = true;
-            this.Book_Number.HeaderText = "책 고유 번호";
-            this.Book_Number.Name = "Book_Number";
-            this.Book_Number.ReadOnly = true;
-            // 
-            // Book_Loans
-            // 
-            this.Book_Loans.Frozen = true;
-            this.Book_Loans.HeaderText = "대출 가능 여부";
-            this.Book_Loans.Name = "Book_Loans";
-            this.Book_Loans.ReadOnly = true;
-            // 
-            // Loans_User
-            // 
-            this.Loans_User.Frozen = true;
-            this.Loans_User.HeaderText = "대출한 회원";
-            this.Loans_User.Name = "Loans_User";
-            this.Loans_User.ReadOnly = true;
-            // 
-            // Loans_Date
-            // 
-            this.Loans_Date.Frozen = true;
-            this.Loans_Date.HeaderText = "대출 일자";
-            this.Loans_Date.Name = "Loans_Date";
-            this.Loans_Date.ReadOnly = true;
-            this.Loans_Date.Width = 120;
-            // 
-            // Return_Date
-            // 
-            this.Return_Date.Frozen = true;
-            this.Return_Date.HeaderText = "반납 일자";
-            this.Return_Date.Name = "Return_Date";
-            this.Return_Date.ReadOnly = true;
-            this.Return_Date.Width = 120;
             // 
             // button1
             // 
@@ -276,7 +199,7 @@ namespace Creative_Library
             // button5
             // 
             this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(974, 421);
+            this.button5.Location = new System.Drawing.Point(974, 391);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(71, 31);
             this.button5.TabIndex = 19;
@@ -287,7 +210,7 @@ namespace Creative_Library
             // button6
             // 
             this.button6.Enabled = false;
-            this.button6.Location = new System.Drawing.Point(1051, 421);
+            this.button6.Location = new System.Drawing.Point(1051, 391);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(70, 31);
             this.button6.TabIndex = 20;
@@ -298,7 +221,7 @@ namespace Creative_Library
             // button7
             // 
             this.button7.Enabled = false;
-            this.button7.Location = new System.Drawing.Point(975, 465);
+            this.button7.Location = new System.Drawing.Point(975, 435);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(106, 31);
             this.button7.TabIndex = 21;
@@ -309,7 +232,7 @@ namespace Creative_Library
             // button8
             // 
             this.button8.Enabled = false;
-            this.button8.Location = new System.Drawing.Point(1091, 465);
+            this.button8.Location = new System.Drawing.Point(1091, 435);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(106, 31);
             this.button8.TabIndex = 22;
@@ -326,13 +249,13 @@ namespace Creative_Library
             this.label5.TabIndex = 24;
             this.label5.Text = "도서 이름";
             // 
-            // textBox5
+            // BOOKNAME_AMD
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(1051, 125);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 21);
-            this.textBox5.TabIndex = 23;
+            this.BOOKNAME_AMD.Enabled = false;
+            this.BOOKNAME_AMD.Location = new System.Drawing.Point(1051, 125);
+            this.BOOKNAME_AMD.Name = "BOOKNAME_AMD";
+            this.BOOKNAME_AMD.Size = new System.Drawing.Size(100, 21);
+            this.BOOKNAME_AMD.TabIndex = 23;
             // 
             // label6
             // 
@@ -343,13 +266,13 @@ namespace Creative_Library
             this.label6.TabIndex = 26;
             this.label6.Text = "저자";
             // 
-            // textBox6
+            // AUTHOR_AMD
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(1051, 161);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 21);
-            this.textBox6.TabIndex = 25;
+            this.AUTHOR_AMD.Enabled = false;
+            this.AUTHOR_AMD.Location = new System.Drawing.Point(1051, 161);
+            this.AUTHOR_AMD.Name = "AUTHOR_AMD";
+            this.AUTHOR_AMD.Size = new System.Drawing.Size(100, 21);
+            this.AUTHOR_AMD.TabIndex = 25;
             // 
             // label7
             // 
@@ -360,13 +283,13 @@ namespace Creative_Library
             this.label7.TabIndex = 28;
             this.label7.Text = "출판사";
             // 
-            // textBox7
+            // PUBLISHER_AMD
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(1051, 197);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 21);
-            this.textBox7.TabIndex = 27;
+            this.PUBLISHER_AMD.Enabled = false;
+            this.PUBLISHER_AMD.Location = new System.Drawing.Point(1051, 197);
+            this.PUBLISHER_AMD.Name = "PUBLISHER_AMD";
+            this.PUBLISHER_AMD.Size = new System.Drawing.Size(100, 21);
+            this.PUBLISHER_AMD.TabIndex = 27;
             // 
             // label8
             // 
@@ -377,13 +300,13 @@ namespace Creative_Library
             this.label8.TabIndex = 30;
             this.label8.Text = "고유 번호";
             // 
-            // textBox8
+            // BOOKNUMBER_AMD
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(1051, 233);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 21);
-            this.textBox8.TabIndex = 29;
+            this.BOOKNUMBER_AMD.Enabled = false;
+            this.BOOKNUMBER_AMD.Location = new System.Drawing.Point(1051, 233);
+            this.BOOKNUMBER_AMD.Name = "BOOKNUMBER_AMD";
+            this.BOOKNUMBER_AMD.Size = new System.Drawing.Size(100, 21);
+            this.BOOKNUMBER_AMD.TabIndex = 29;
             // 
             // button9
             // 
@@ -455,6 +378,7 @@ namespace Creative_Library
             this.button10.TabIndex = 46;
             this.button10.Text = "도서 관리";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // comboBox1
             // 
@@ -472,30 +396,22 @@ namespace Creative_Library
             this.comboBox2.Size = new System.Drawing.Size(77, 20);
             this.comboBox2.TabIndex = 48;
             // 
-            // label9
+            // button11
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(988, 380);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 12);
-            this.label9.TabIndex = 50;
-            this.label9.Text = "메일 주소";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(1050, 377);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 21);
-            this.textBox9.TabIndex = 49;
+            this.button11.Location = new System.Drawing.Point(1113, 13);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(84, 37);
+            this.button11.TabIndex = 49;
+            this.button11.Text = "로그아웃";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Admin_Main_Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 534);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button10);
@@ -507,13 +423,13 @@ namespace Creative_Library
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.BOOKNUMBER_AMD);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.PUBLISHER_AMD);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.AUTHOR_AMD);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.BOOKNAME_AMD);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -561,13 +477,13 @@ namespace Creative_Library
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox BOOKNAME_AMD;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox AUTHOR_AMD;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox PUBLISHER_AMD;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox BOOKNUMBER_AMD;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox13;
@@ -575,18 +491,9 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Book_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Book_Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Book_Loans;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Loans_User;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Loans_Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Return_Date;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Button button11;
     }
 }

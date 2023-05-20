@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Creative_Library;
+using MySql.Data.MySqlClient;
 
 namespace Creative_Library
 {
@@ -17,35 +19,104 @@ namespace Creative_Library
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string username = ID.Text;
-            string password = PW.Text;
+        // MySQL 연결 문자열
+        string connectionString = "Server=localhost; Database=회원; Uid=Lzen; Pwd=!fmwps530^^;";
 
-            // 일반 회원용 로그인 처리
-            if (username == "user" && password == "1234")
-            {
-                MessageBox.Show("일반 회원으로 로그인되었습니다.");
-                // 일반 회원용 메인 화면으로 이동
-                User_Main_Display UMD = new User_Main_Display();
-                UMD.Show();
-                this.Hide();
+        private void Main_Display_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BACK_Click(object sender, EventArgs e) // 뒤로가기
+        {
+            Not_User_Search_Book NUSB = new Not_User_Search_Book();
+            NUSB.Show();
+            this.Hide();
+        }
+
+        private void LOGIN_Click(object sender, EventArgs e) // 로그인
+        {
+            string id = ID.Text.Trim();
+            string pw = PW.Text.Trim();
+
+            // 로그인의 조건
+            // 회원가입시 사용했던 아이디를 사용한다.
+            // 회원가입시 사용했던 아이디의 비밀번호를 사용한다.
+
+            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(pw))
+            {   //   아이디가 비어있다면.       비밀번호가 비어있다면.
+                MessageBox.Show("모든 항목을 입력해주세요.");
+                return;
             }
-            // 관리자용 로그인 처리
-            else if (username == "admin" && password == "0000")
+
+            try
             {
-                MessageBox.Show("관리자로 로그인되었습니다.");
-                // 관리자용 메인 화면으로 이동
-                Admin_Main_Display MMD = new Admin_Main_Display();
-                MMD.Show();
-                this.Hide();
+                // MySqlConnection 개체 생성
+                MySqlConnection connection = new MySqlConnection(connectionString);
+
+                connection.Open();
+
+                int login_status = 0;
+                int Role = 0;
+
+                string query = "SELECT * FROM 회원 WHERE 아이디 = @Username";
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Username", id);
+
+                MySqlDataReader userAccount = command.ExecuteReader();
+
+                while (userAccount.Read())
+                {
+                    if (id == (string)userAccount["아이디"] && pw == (string)userAccount["비밀번호"])
+                    {
+                        login_status = 1;
+                        Role = int.Parse(userAccount["역할"].ToString());
+                    }
+                }
+
+                connection.Close();
+
+                if (login_status == 1)
+                {
+                    if (Role == 2)
+                    {
+                        MessageBox.Show("일반 회원으로 로그인되었습니다.");
+                        // 일반 사용자인 경우, 사용자 화면으로 이동
+                        User_Main_Display UMD = new User_Main_Display();
+                        UMD.Show();
+                        this.Hide();
+                    }
+                    else if (Role == 1)
+                    {
+                        MessageBox.Show("관리자로 로그인되었습니다.");
+                        // 관리자인 경우, 관리자 화면으로 이동
+                        Admin_Main_Display AMD = new Admin_Main_Display();
+                        AMD.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("알바로 로그인되었습니다.");
+                        // 알바인 경우, 알바생 화면으로 이동
+                        Alba_Main_Display AlMD = new Alba_Main_Display();
+                        AlMD.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    // 로그인 실패
+                    MessageBox.Show("잘못된 사용자 이름 또는 비밀번호입니다.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("잘못된 사용자 이름 또는 비밀번호입니다.");
+                MessageBox.Show(ex.Message);
             }
         }
-        private void label3_Click_1(object sender, EventArgs e)
+
+        private void SIGNUP_Click(object sender, EventArgs e) // 회원가입
         {
             SignUp SU = new SignUp();
             SU.Show();
