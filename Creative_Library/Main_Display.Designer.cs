@@ -63,13 +63,16 @@ namespace Creative_Library
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(119, 21);
             this.ID.TabIndex = 4;
+            this.ID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ID_KeyDown);
             // 
             // PW
             // 
             this.PW.Location = new System.Drawing.Point(92, 145);
             this.PW.Name = "PW";
+            this.PW.PasswordChar = '*';
             this.PW.Size = new System.Drawing.Size(119, 21);
             this.PW.TabIndex = 5;
+            this.PW.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PW_KeyDown);
             // 
             // label4
             // 
@@ -126,6 +129,7 @@ namespace Creative_Library
             this.Controls.Add(this.ID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "Main_Display";
             this.Text = "Main_Display";
             this.Load += new System.EventHandler(this.Main_Display_Load);

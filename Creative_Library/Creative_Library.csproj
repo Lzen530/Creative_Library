@@ -124,11 +124,11 @@
     <Compile Include="Alba_Book_Manage.Designer.cs">
       <DependentUpon>Alba_Book_Manage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alba_Main_Display.cs">
+    <Compile Include="Book_Loan_Retrun.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alba_Main_Display.Designer.cs">
-      <DependentUpon>Alba_Main_Display.cs</DependentUpon>
+    <Compile Include="Book_Loan_Retrun.Designer.cs">
+      <DependentUpon>Book_Loan_Retrun.cs</DependentUpon>
     </Compile>
     <Compile Include="Book_Manage.cs">
       <SubType>Form</SubType>
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="Alba_Book_Manage.resx">
       <DependentUpon>Alba_Book_Manage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Alba_Main_Display.resx">
-      <DependentUpon>Alba_Main_Display.cs</DependentUpon>
+    <EmbeddedResource Include="Book_Loan_Retrun.resx">
+      <DependentUpon>Book_Loan_Retrun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Book_Manage.resx">
       <DependentUpon>Book_Manage.cs</DependentUpon>

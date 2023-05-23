@@ -40,21 +40,20 @@ namespace Creative_Library
             }
         }
 
-        private void button4_Click(object sender, EventArgs e) // 회원 관리 버튼
+        private void UMD_AMD_Click(object sender, EventArgs e) // 회원 관리 버튼
         {
             User_Manage UM = new User_Manage();
             UM.Show();
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e) // 도서 추가/수정/삭제 on off 기능
+        private void BM_AMD_Click(object sender, EventArgs e) // 연체 관리 버튼
         {
-            DELETE_AMD.Enabled = !DELETE_AMD.Enabled;
-            INSERT_AMD.Enabled = !INSERT_AMD.Enabled;
-            UPDATE_AMD.Enabled = !UPDATE_AMD.Enabled;
-
-            UpdateButtonStates();
+            Book_Manage BM = new Book_Manage();
+            BM.Show();
+            this.Hide();
         }
+
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
                // 잘못 추가함.
@@ -69,42 +68,36 @@ namespace Creative_Library
          */
         private void Admin_Main_Display_Load(object sender, EventArgs e)
         {
-            MySqlConnection connection = new MySqlConnection(connectionstring);
-            connection.Open();
-
-            MySqlCommand command = new MySqlCommand(SqlQuery, connection);
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable datatable = new DataTable();
-            adapter.Fill(datatable);
-
-
-            dataGridView1.DataSource = datatable;
+            LoadDataIntoDataGridView();
         }
 
-        private void button2_Click(object sender, EventArgs e) //도서 검색 버튼
+        private void BOOK_INSERT_UPDATE_DELETE_AMD_Click(object sender, EventArgs e) // 도서 추가/수정/삭제 on off 기능
         {
+            DELETE_AMD.Enabled = !DELETE_AMD.Enabled;
+            INSERT_AMD.Enabled = !INSERT_AMD.Enabled;
+            UPDATE_AMD.Enabled = !UPDATE_AMD.Enabled;
 
+            UpdateButtonStates();
         }
 
-        private void button1_Click_1(object sender, EventArgs e) // 도서 대출/반납 on off 기능
+        private void BOOK_LOAN_RETURN_AMD_Click(object sender, EventArgs e) // 도서 대출/반납 on off 기능
         {
             LOAN_AMD.Enabled = !LOAN_AMD.Enabled;
             RETURN_AMD.Enabled = !RETURN_AMD.Enabled;
 
-            USERNAME_AMD.Enabled = true;
-            USERID_AMD.Enabled = true;
-            PHONE_AMD.Enabled = true;
+            USERNAME_AMD.Enabled = !USERNAME_AMD.Enabled;
+            USERID_AMD.Enabled = !USERID_AMD.Enabled;
+            PHONE_AMD.Enabled = !PHONE_AMD.Enabled;
 
             UpdateButtonStates();
         }
 
         private void UpdateButtonStates()
         {
-            BOOKNAME_AMD.Enabled = button1.Enabled || button2.Enabled;
-            AUTHOR_AMD.Enabled = button1.Enabled || button2.Enabled;
-            PUBLISHER_AMD.Enabled = button1.Enabled || button2.Enabled;
-            BOOKNUMBER_AMD.Enabled = button1.Enabled || button2.Enabled;
+            BOOKNAME_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
+            AUTHOR_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
+            PUBLISHER_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
+            BOOKNUMBER_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
 
             if (!DELETE_AMD.Enabled && !INSERT_AMD.Enabled && !UPDATE_AMD.Enabled && !LOAN_AMD.Enabled && !RETURN_AMD.Enabled)
             {
@@ -115,19 +108,7 @@ namespace Creative_Library
             }
         }
 
-        private void button9_Click(object sender, EventArgs e) // 연체 관리
-        {
-            Book_Manage BM = new Book_Manage();
-            BM.Show();
-            this.Hide();
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            // 도서 관리 버튼 ( 하지만 비활성화 )
-        }
-
-        private void button11_Click(object sender, EventArgs e) // 로그아웃
+        private void LOGOUT_AMD_Click(object sender, EventArgs e) // 로그아웃
         {
             DialogResult result = MessageBox.Show("정말로 로그아웃하시겠습니까?", "로그아웃", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
@@ -145,12 +126,14 @@ namespace Creative_Library
                 MySqlConnection connection = new MySqlConnection(connectionstring);
                 connection.Open();
 
+                // 1. 데이터 가져오기
                 string BookName = BOOKNAME_AMD.Text.Trim();
                 string Author = AUTHOR_AMD.Text.Trim();
                 string Publisher = PUBLISHER_AMD.Text.Trim();
                 string BookNumber = BOOKNUMBER_AMD.Text.Trim();
 
-                // 고유번호 중복 예외 처리
+                // 2. 예외 처리
+                // 2-1. 고유번호가 중복될 경우
                 string QueryBookNumber = "SELECT COUNT(*) FROM 도서 WHERE 고유번호 = @BookNumber";
 
                 MySqlCommand command1 = new MySqlCommand(QueryBookNumber, connection);
@@ -164,13 +147,14 @@ namespace Creative_Library
                     return;
                 }
 
-
+                // 2-2. 입력한 도서의 정보가 부족할 경우
                 if (string.IsNullOrEmpty(BookName) || string.IsNullOrEmpty(Author) || string.IsNullOrEmpty(Publisher) || string.IsNullOrEmpty(BookNumber))
                 {
                     MessageBox.Show("추가시킬 도서의 정보가 부족합니다.");
                     return;
                 }
 
+                // 3. 데이터 추가
                 string QueryBook = "INSERT INTO 도서(도서이름, 저자, 출판사, 고유번호) VALUES(@Bookname, @Author, @Publisher, @Booknumber)";
             
                 MySqlCommand command = new MySqlCommand(QueryBook, connection);
@@ -183,7 +167,7 @@ namespace Creative_Library
 
                 MessageBox.Show("도서가 추가되었습니다.");
 
-
+                // 4. 데이터그리드뷰 업데이트
                 LoadDataIntoDataGridView();
             }
             catch (Exception ex)
@@ -198,7 +182,7 @@ namespace Creative_Library
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    // 선택한 행의 인덱스 가져오기
+                    // 1. 선택한 행의 인덱스 가져오기
                     DataGridViewRow rowIndex = dataGridView1.SelectedRows[0];
 
                     // 2. 데이터 가져오기
@@ -258,7 +242,43 @@ namespace Creative_Library
 
         private void DELETE_AMD_Click(object sender, EventArgs e) // 삭제
         {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    // 1. 선택한 행의 인덱스 가져오기
+                    DataGridViewRow rowIndex = dataGridView1.SelectedRows[0];
 
+                    // 2. 데이터 가져오기
+                    string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
+
+                    // 3. 삭제 버튼 이벤트 처리
+                    // 선택한 행의 데이터를 데이터베이스에서 삭제
+                    string query = "DELETE FROM 도서 WHERE 고유번호 = @고유번호";
+
+                    using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                    {
+                        connection.Open();
+
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@고유번호", bookNumber);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // 4. 데이터그리드뷰 업데이트
+                    // 데이터를 다시 가져와서 데이터그리드뷰에 반영
+                    LoadDataIntoDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("삭제할 행을 선택해주세요.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void LOAN_AMD_Click(object sender, EventArgs e) // 대출
@@ -269,6 +289,22 @@ namespace Creative_Library
         private void RETURN_AMD_Click(object sender, EventArgs e) // 반납
         {
 
+        }
+
+        private void SEARCH_AMD_Click(object sender, EventArgs e) // 도서 검색 버튼
+        {
+
+        }
+
+        private Book_Loan_Return BLR;
+        private void LOAN_RETURN_AMD_Click(object sender, EventArgs e) // 임시용 대출/반납 폼 이동 버튼
+        {
+            if (BLR == null || BLR.IsDisposed) // 인스턴스가 존재하지 않거나 폼이 닫혀있는 경우
+            {
+                BLR = new Book_Loan_Return(); // 새로운 Main_Display 폼 인스턴스 생성
+            }
+
+            BLR.Show();
         }
     }
 }

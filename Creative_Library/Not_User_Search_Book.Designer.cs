@@ -156,6 +156,7 @@ namespace Creative_Library
             this.Controls.Add(this.dataGridView1);
             this.Name = "Not_User_Search_Book";
             this.Text = "Not_User_Search_Book";
+            this.Load += new System.EventHandler(this.Not_User_Search_Book_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

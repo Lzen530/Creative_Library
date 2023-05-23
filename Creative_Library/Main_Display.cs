@@ -24,7 +24,7 @@ namespace Creative_Library
 
         private void Main_Display_Load(object sender, EventArgs e)
         {
-
+            // 지우지 말 것.
         }
 
         private void BACK_Click(object sender, EventArgs e) // 뒤로가기
@@ -32,6 +32,24 @@ namespace Creative_Library
             Not_User_Search_Book NUSB = new Not_User_Search_Book();
             NUSB.Show();
             this.Hide();
+        }
+
+        private void ID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 비밀번호 입력란에서 Enter 키가 눌렸을 때 로그인 동작 수행
+                LOGIN_Click(sender, e);
+            }
+        }
+
+        private void PW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 비밀번호 입력란에서 Enter 키가 눌렸을 때 로그인 동작 수행
+                LOGIN_Click(sender, e);
+            }
         }
 
         private void LOGIN_Click(object sender, EventArgs e) // 로그인
@@ -99,7 +117,7 @@ namespace Creative_Library
                     {
                         MessageBox.Show("알바로 로그인되었습니다.");
                         // 알바인 경우, 알바생 화면으로 이동
-                        Alba_Main_Display AlMD = new Alba_Main_Display();
+                        Book_Loan_Return AlMD = new Book_Loan_Return();
                         AlMD.Show();
                         this.Hide();
                     }

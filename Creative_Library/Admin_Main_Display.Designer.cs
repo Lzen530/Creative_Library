@@ -29,11 +29,7 @@ namespace Creative_Library
         /// </summary>
         private void InitializeComponent()
         {
-            this.Book_Add = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -50,44 +46,29 @@ namespace Creative_Library
             this.PUBLISHER_AMD = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.BOOKNUMBER_AMD = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.USERNAME_AMD = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.USERID_AMD = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.PHONE_AMD = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button11 = new System.Windows.Forms.Button();
             this.INSERT_AMD = new System.Windows.Forms.Button();
             this.UPDATE_AMD = new System.Windows.Forms.Button();
             this.DELETE_AMD = new System.Windows.Forms.Button();
             this.LOAN_AMD = new System.Windows.Forms.Button();
             this.RETURN_AMD = new System.Windows.Forms.Button();
+            this.SEARCH_AMD = new System.Windows.Forms.Button();
+            this.UMD_AMD = new System.Windows.Forms.Button();
+            this.BM_AMD = new System.Windows.Forms.Button();
+            this.BOOK_INSERT_UPDATE_DELETE_AMD = new System.Windows.Forms.Button();
+            this.BOOK_LOAN_RETURN_AMD = new System.Windows.Forms.Button();
+            this.LOGOUT_AMD = new System.Windows.Forms.Button();
+            this.AMD_AMD = new System.Windows.Forms.Button();
+            this.LOAN_RETURN_AMD = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Book_Add
-            // 
-            this.Book_Add.Location = new System.Drawing.Point(22, 41);
-            this.Book_Add.Name = "Book_Add";
-            this.Book_Add.Size = new System.Drawing.Size(168, 32);
-            this.Book_Add.TabIndex = 3;
-            this.Book_Add.Text = "도서 추가/수정/삭제";
-            this.Book_Add.UseVisualStyleBackColor = true;
-            this.Book_Add.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(102, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(74, 24);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "회원 관리";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
             // 
@@ -97,29 +78,10 @@ namespace Creative_Library
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(947, 404);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(210, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 32);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "도서 대출/반납";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(701, 79);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 21);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "검색";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -253,16 +215,6 @@ namespace Creative_Library
             this.BOOKNUMBER_AMD.Size = new System.Drawing.Size(100, 21);
             this.BOOKNUMBER_AMD.TabIndex = 29;
             // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(182, 12);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(74, 24);
-            this.button9.TabIndex = 31;
-            this.button9.Text = "연체 관리";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -314,17 +266,6 @@ namespace Creative_Library
             this.PHONE_AMD.Size = new System.Drawing.Size(100, 21);
             this.PHONE_AMD.TabIndex = 44;
             // 
-            // button10
-            // 
-            this.button10.Enabled = false;
-            this.button10.Location = new System.Drawing.Point(22, 12);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(74, 24);
-            this.button10.TabIndex = 46;
-            this.button10.Text = "도서 관리";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -340,16 +281,6 @@ namespace Creative_Library
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(77, 20);
             this.comboBox2.TabIndex = 48;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(1113, 13);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(84, 37);
-            this.button11.TabIndex = 49;
-            this.button11.Text = "로그아웃";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // INSERT_AMD
             // 
@@ -406,27 +337,112 @@ namespace Creative_Library
             this.RETURN_AMD.UseVisualStyleBackColor = true;
             this.RETURN_AMD.Click += new System.EventHandler(this.RETURN_AMD_Click);
             // 
+            // SEARCH_AMD
+            // 
+            this.SEARCH_AMD.Location = new System.Drawing.Point(701, 80);
+            this.SEARCH_AMD.Name = "SEARCH_AMD";
+            this.SEARCH_AMD.Size = new System.Drawing.Size(93, 21);
+            this.SEARCH_AMD.TabIndex = 55;
+            this.SEARCH_AMD.Text = "검색";
+            this.SEARCH_AMD.UseVisualStyleBackColor = true;
+            this.SEARCH_AMD.Click += new System.EventHandler(this.SEARCH_AMD_Click);
+            // 
+            // UMD_AMD
+            // 
+            this.UMD_AMD.Location = new System.Drawing.Point(102, 11);
+            this.UMD_AMD.Name = "UMD_AMD";
+            this.UMD_AMD.Size = new System.Drawing.Size(74, 24);
+            this.UMD_AMD.TabIndex = 56;
+            this.UMD_AMD.Text = "회원 관리";
+            this.UMD_AMD.UseVisualStyleBackColor = true;
+            this.UMD_AMD.Click += new System.EventHandler(this.UMD_AMD_Click);
+            // 
+            // BM_AMD
+            // 
+            this.BM_AMD.Location = new System.Drawing.Point(182, 11);
+            this.BM_AMD.Name = "BM_AMD";
+            this.BM_AMD.Size = new System.Drawing.Size(74, 24);
+            this.BM_AMD.TabIndex = 57;
+            this.BM_AMD.Text = "연체 관리";
+            this.BM_AMD.UseVisualStyleBackColor = true;
+            this.BM_AMD.Click += new System.EventHandler(this.BM_AMD_Click);
+            // 
+            // BOOK_INSERT_UPDATE_DELETE_AMD
+            // 
+            this.BOOK_INSERT_UPDATE_DELETE_AMD.Location = new System.Drawing.Point(22, 41);
+            this.BOOK_INSERT_UPDATE_DELETE_AMD.Name = "BOOK_INSERT_UPDATE_DELETE_AMD";
+            this.BOOK_INSERT_UPDATE_DELETE_AMD.Size = new System.Drawing.Size(168, 32);
+            this.BOOK_INSERT_UPDATE_DELETE_AMD.TabIndex = 58;
+            this.BOOK_INSERT_UPDATE_DELETE_AMD.Text = "도서 추가/수정/삭제";
+            this.BOOK_INSERT_UPDATE_DELETE_AMD.UseVisualStyleBackColor = true;
+            this.BOOK_INSERT_UPDATE_DELETE_AMD.Click += new System.EventHandler(this.BOOK_INSERT_UPDATE_DELETE_AMD_Click);
+            // 
+            // BOOK_LOAN_RETURN_AMD
+            // 
+            this.BOOK_LOAN_RETURN_AMD.Location = new System.Drawing.Point(196, 41);
+            this.BOOK_LOAN_RETURN_AMD.Name = "BOOK_LOAN_RETURN_AMD";
+            this.BOOK_LOAN_RETURN_AMD.Size = new System.Drawing.Size(168, 32);
+            this.BOOK_LOAN_RETURN_AMD.TabIndex = 59;
+            this.BOOK_LOAN_RETURN_AMD.Text = "도서 대출/반납";
+            this.BOOK_LOAN_RETURN_AMD.UseVisualStyleBackColor = true;
+            this.BOOK_LOAN_RETURN_AMD.Click += new System.EventHandler(this.BOOK_LOAN_RETURN_AMD_Click);
+            // 
+            // LOGOUT_AMD
+            // 
+            this.LOGOUT_AMD.Location = new System.Drawing.Point(1109, 12);
+            this.LOGOUT_AMD.Name = "LOGOUT_AMD";
+            this.LOGOUT_AMD.Size = new System.Drawing.Size(84, 37);
+            this.LOGOUT_AMD.TabIndex = 60;
+            this.LOGOUT_AMD.Text = "로그아웃";
+            this.LOGOUT_AMD.UseVisualStyleBackColor = true;
+            this.LOGOUT_AMD.Click += new System.EventHandler(this.LOGOUT_AMD_Click);
+            // 
+            // AMD_AMD
+            // 
+            this.AMD_AMD.Enabled = false;
+            this.AMD_AMD.Location = new System.Drawing.Point(22, 11);
+            this.AMD_AMD.Name = "AMD_AMD";
+            this.AMD_AMD.Size = new System.Drawing.Size(74, 24);
+            this.AMD_AMD.TabIndex = 61;
+            this.AMD_AMD.Text = "도서 관리";
+            this.AMD_AMD.UseVisualStyleBackColor = true;
+            // 
+            // LOAN_RETURN_AMD
+            // 
+            this.LOAN_RETURN_AMD.Location = new System.Drawing.Point(411, 19);
+            this.LOAN_RETURN_AMD.Name = "LOAN_RETURN_AMD";
+            this.LOAN_RETURN_AMD.Size = new System.Drawing.Size(146, 23);
+            this.LOAN_RETURN_AMD.TabIndex = 62;
+            this.LOAN_RETURN_AMD.Text = "대출반납 임시 이동버튼";
+            this.LOAN_RETURN_AMD.UseVisualStyleBackColor = true;
+            this.LOAN_RETURN_AMD.Click += new System.EventHandler(this.LOAN_RETURN_AMD_Click);
+            // 
             // Admin_Main_Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 534);
+            this.Controls.Add(this.LOAN_RETURN_AMD);
+            this.Controls.Add(this.AMD_AMD);
+            this.Controls.Add(this.LOGOUT_AMD);
+            this.Controls.Add(this.BOOK_LOAN_RETURN_AMD);
+            this.Controls.Add(this.BOOK_INSERT_UPDATE_DELETE_AMD);
+            this.Controls.Add(this.BM_AMD);
+            this.Controls.Add(this.UMD_AMD);
+            this.Controls.Add(this.SEARCH_AMD);
             this.Controls.Add(this.RETURN_AMD);
             this.Controls.Add(this.LOAN_AMD);
             this.Controls.Add(this.DELETE_AMD);
             this.Controls.Add(this.UPDATE_AMD);
             this.Controls.Add(this.INSERT_AMD);
-            this.Controls.Add(this.button11);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button10);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.PHONE_AMD);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.USERID_AMD);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.USERNAME_AMD);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.BOOKNUMBER_AMD);
             this.Controls.Add(this.label7);
@@ -443,11 +459,7 @@ namespace Creative_Library
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.Book_Add);
             this.Name = "Admin_Main_Display";
             this.Text = "Admin_Main_Display";
             this.Load += new System.EventHandler(this.Admin_Main_Display_Load);
@@ -458,11 +470,7 @@ namespace Creative_Library
         }
 
         #endregion
-        private System.Windows.Forms.Button Book_Add;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -479,21 +487,26 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox PUBLISHER_AMD;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox BOOKNUMBER_AMD;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox USERNAME_AMD;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox USERID_AMD;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox PHONE_AMD;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button INSERT_AMD;
         private System.Windows.Forms.Button UPDATE_AMD;
         private System.Windows.Forms.Button DELETE_AMD;
         private System.Windows.Forms.Button LOAN_AMD;
         private System.Windows.Forms.Button RETURN_AMD;
+        private System.Windows.Forms.Button SEARCH_AMD;
+        private System.Windows.Forms.Button UMD_AMD;
+        private System.Windows.Forms.Button BM_AMD;
+        private System.Windows.Forms.Button BOOK_INSERT_UPDATE_DELETE_AMD;
+        private System.Windows.Forms.Button BOOK_LOAN_RETURN_AMD;
+        private System.Windows.Forms.Button LOGOUT_AMD;
+        private System.Windows.Forms.Button AMD_AMD;
+        private System.Windows.Forms.Button LOAN_RETURN_AMD;
     }
 }

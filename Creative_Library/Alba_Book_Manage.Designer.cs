@@ -58,13 +58,12 @@ namespace Creative_Library
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.User_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.User_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.e_Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOAN_RETURN_AlBM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -310,26 +309,6 @@ namespace Creative_Library
             this.textBox13.Size = new System.Drawing.Size(73, 21);
             this.textBox13.TabIndex = 98;
             // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(12, 13);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(74, 24);
-            this.button10.TabIndex = 97;
-            this.button10.Text = "도서 관리";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button9
-            // 
-            this.button9.Enabled = false;
-            this.button9.Location = new System.Drawing.Point(92, 13);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(74, 24);
-            this.button9.TabIndex = 96;
-            this.button9.Text = "연체 관리";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
@@ -374,11 +353,22 @@ namespace Creative_Library
             this.e_Mail.Name = "e_Mail";
             this.e_Mail.ReadOnly = true;
             // 
+            // LOAN_RETURN_AlBM
+            // 
+            this.LOAN_RETURN_AlBM.Location = new System.Drawing.Point(12, 12);
+            this.LOAN_RETURN_AlBM.Name = "LOAN_RETURN_AlBM";
+            this.LOAN_RETURN_AlBM.Size = new System.Drawing.Size(74, 24);
+            this.LOAN_RETURN_AlBM.TabIndex = 121;
+            this.LOAN_RETURN_AlBM.Text = "도서 관리";
+            this.LOAN_RETURN_AlBM.UseVisualStyleBackColor = true;
+            this.LOAN_RETURN_AlBM.Click += new System.EventHandler(this.LOAN_RETURN_AlBM_Click);
+            // 
             // Alba_Book_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 653);
+            this.Controls.Add(this.LOAN_RETURN_AlBM);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox4);
@@ -402,8 +392,6 @@ namespace Creative_Library
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Alba_Book_Manage";
             this.Text = "Alba_Book_Manage";
@@ -445,12 +433,11 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn User_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn User_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn e_Mail;
+        private System.Windows.Forms.Button LOAN_RETURN_AlBM;
     }
 }

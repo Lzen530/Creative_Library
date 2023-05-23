@@ -17,9 +17,15 @@ namespace Creative_Library
             InitializeComponent();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private Book_Loan_Return AlMD;
+
+        private void LOAN_RETURN_AlBM_Click(object sender, EventArgs e)
         {
-            Alba_Main_Display AlMD = new Alba_Main_Display();
+            if (AlMD == null || AlMD.IsDisposed) // 인스턴스가 존재하지 않거나 폼이 닫혀있는 경우
+            {
+                AlMD = new Book_Loan_Return(); // 새로운 Alba_Main_Display 폼 인스턴스 생성
+            }
+
             AlMD.Show();
             this.Hide();
         }

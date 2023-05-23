@@ -29,14 +29,7 @@ namespace Creative_Library
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.User_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.e_Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Loan_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Return_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User_DELETE = new System.Windows.Forms.Button();
+            this.USER_DELETE = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -45,87 +38,27 @@ namespace Creative_Library
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.SEARCH = new System.Windows.Forms.Button();
+            this.PW_RESET = new System.Windows.Forms.Button();
+            this.SEARCH_UM = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.UM = new System.Windows.Forms.Button();
-            this.AMD = new System.Windows.Forms.Button();
-            this.BM = new System.Windows.Forms.Button();
+            this.UM_UM = new System.Windows.Forms.Button();
+            this.AMD_UM = new System.Windows.Forms.Button();
+            this.BM_UM = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // USER_DELETE
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.User_Name,
-            this.User_ID,
-            this.Phone_Number,
-            this.e_Mail,
-            this.Loan_Status,
-            this.Return_Status});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 123);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(695, 330);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // User_Name
-            // 
-            this.User_Name.Frozen = true;
-            this.User_Name.HeaderText = "이름";
-            this.User_Name.Name = "User_Name";
-            this.User_Name.ReadOnly = true;
-            // 
-            // User_ID
-            // 
-            this.User_ID.Frozen = true;
-            this.User_ID.HeaderText = "아이디";
-            this.User_ID.Name = "User_ID";
-            this.User_ID.ReadOnly = true;
-            // 
-            // Phone_Number
-            // 
-            this.Phone_Number.Frozen = true;
-            this.Phone_Number.HeaderText = "전화번호";
-            this.Phone_Number.Name = "Phone_Number";
-            this.Phone_Number.ReadOnly = true;
-            // 
-            // e_Mail
-            // 
-            this.e_Mail.Frozen = true;
-            this.e_Mail.HeaderText = "메일 주소";
-            this.e_Mail.Name = "e_Mail";
-            this.e_Mail.ReadOnly = true;
-            // 
-            // Loan_Status
-            // 
-            this.Loan_Status.Frozen = true;
-            this.Loan_Status.HeaderText = "대출 현황";
-            this.Loan_Status.Name = "Loan_Status";
-            this.Loan_Status.ReadOnly = true;
-            // 
-            // Return_Status
-            // 
-            this.Return_Status.Frozen = true;
-            this.Return_Status.HeaderText = "연체 현황";
-            this.Return_Status.Name = "Return_Status";
-            this.Return_Status.ReadOnly = true;
-            // 
-            // User_DELETE
-            // 
-            this.User_DELETE.Location = new System.Drawing.Point(12, 59);
-            this.User_DELETE.Name = "User_DELETE";
-            this.User_DELETE.Size = new System.Drawing.Size(114, 26);
-            this.User_DELETE.TabIndex = 4;
-            this.User_DELETE.Text = "회원 삭제";
-            this.User_DELETE.UseVisualStyleBackColor = true;
+            this.USER_DELETE.Location = new System.Drawing.Point(12, 59);
+            this.USER_DELETE.Name = "USER_DELETE";
+            this.USER_DELETE.Size = new System.Drawing.Size(114, 26);
+            this.USER_DELETE.TabIndex = 4;
+            this.USER_DELETE.Text = "회원 삭제";
+            this.USER_DELETE.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -191,24 +124,24 @@ namespace Creative_Library
             this.textBox13.Size = new System.Drawing.Size(73, 21);
             this.textBox13.TabIndex = 51;
             // 
-            // button2
+            // PW_RESET
             // 
-            this.button2.Location = new System.Drawing.Point(141, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 26);
-            this.button2.TabIndex = 59;
-            this.button2.Text = "비밀번호 재설정";
-            this.button2.UseVisualStyleBackColor = true;
+            this.PW_RESET.Location = new System.Drawing.Point(141, 59);
+            this.PW_RESET.Name = "PW_RESET";
+            this.PW_RESET.Size = new System.Drawing.Size(114, 26);
+            this.PW_RESET.TabIndex = 59;
+            this.PW_RESET.Text = "비밀번호 재설정";
+            this.PW_RESET.UseVisualStyleBackColor = true;
             // 
-            // SEARCH
+            // SEARCH_UM
             // 
-            this.SEARCH.Location = new System.Drawing.Point(656, 90);
-            this.SEARCH.Name = "SEARCH";
-            this.SEARCH.Size = new System.Drawing.Size(51, 26);
-            this.SEARCH.TabIndex = 60;
-            this.SEARCH.Text = "검색";
-            this.SEARCH.UseVisualStyleBackColor = true;
-            this.SEARCH.Click += new System.EventHandler(this.SEARCH_Click);
+            this.SEARCH_UM.Location = new System.Drawing.Point(656, 90);
+            this.SEARCH_UM.Name = "SEARCH_UM";
+            this.SEARCH_UM.Size = new System.Drawing.Size(51, 26);
+            this.SEARCH_UM.TabIndex = 60;
+            this.SEARCH_UM.Text = "검색";
+            this.SEARCH_UM.UseVisualStyleBackColor = true;
+            this.SEARCH_UM.Click += new System.EventHandler(this.SEARCH_Click);
             // 
             // textBox1
             // 
@@ -242,51 +175,62 @@ namespace Creative_Library
             this.comboBox1.Size = new System.Drawing.Size(57, 20);
             this.comboBox1.TabIndex = 63;
             // 
-            // UM
+            // UM_UM
             // 
-            this.UM.Enabled = false;
-            this.UM.Location = new System.Drawing.Point(92, 12);
-            this.UM.Name = "UM";
-            this.UM.Size = new System.Drawing.Size(74, 24);
-            this.UM.TabIndex = 65;
-            this.UM.Text = "회원 관리";
-            this.UM.UseVisualStyleBackColor = true;
-            this.UM.Click += new System.EventHandler(this.UM_Click);
+            this.UM_UM.Enabled = false;
+            this.UM_UM.Location = new System.Drawing.Point(92, 12);
+            this.UM_UM.Name = "UM_UM";
+            this.UM_UM.Size = new System.Drawing.Size(74, 24);
+            this.UM_UM.TabIndex = 65;
+            this.UM_UM.Text = "회원 관리";
+            this.UM_UM.UseVisualStyleBackColor = true;
+            this.UM_UM.Click += new System.EventHandler(this.UM_Click);
             // 
-            // AMD
+            // AMD_UM
             // 
-            this.AMD.Location = new System.Drawing.Point(12, 12);
-            this.AMD.Name = "AMD";
-            this.AMD.Size = new System.Drawing.Size(74, 24);
-            this.AMD.TabIndex = 68;
-            this.AMD.Text = "도서 관리";
-            this.AMD.UseVisualStyleBackColor = true;
-            this.AMD.Click += new System.EventHandler(this.AMD_Click);
+            this.AMD_UM.Location = new System.Drawing.Point(12, 12);
+            this.AMD_UM.Name = "AMD_UM";
+            this.AMD_UM.Size = new System.Drawing.Size(74, 24);
+            this.AMD_UM.TabIndex = 68;
+            this.AMD_UM.Text = "도서 관리";
+            this.AMD_UM.UseVisualStyleBackColor = true;
+            this.AMD_UM.Click += new System.EventHandler(this.AMD_Click);
             // 
-            // BM
+            // BM_UM
             // 
-            this.BM.Location = new System.Drawing.Point(172, 12);
-            this.BM.Name = "BM";
-            this.BM.Size = new System.Drawing.Size(74, 24);
-            this.BM.TabIndex = 69;
-            this.BM.Text = "연체 관리";
-            this.BM.UseVisualStyleBackColor = true;
-            this.BM.Click += new System.EventHandler(this.BM_Click);
+            this.BM_UM.Location = new System.Drawing.Point(172, 12);
+            this.BM_UM.Name = "BM_UM";
+            this.BM_UM.Size = new System.Drawing.Size(74, 24);
+            this.BM_UM.TabIndex = 69;
+            this.BM_UM.Text = "연체 관리";
+            this.BM_UM.UseVisualStyleBackColor = true;
+            this.BM_UM.Click += new System.EventHandler(this.BM_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 120);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(692, 343);
+            this.dataGridView1.TabIndex = 70;
             // 
             // User_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 475);
-            this.Controls.Add(this.BM);
-            this.Controls.Add(this.AMD);
-            this.Controls.Add(this.UM);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.BM_UM);
+            this.Controls.Add(this.AMD_UM);
+            this.Controls.Add(this.UM_UM);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.SEARCH);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.SEARCH_UM);
+            this.Controls.Add(this.PW_RESET);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label15);
@@ -295,8 +239,7 @@ namespace Creative_Library
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.User_DELETE);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.USER_DELETE);
             this.Name = "User_Manage";
             this.Text = "User_Manage";
             this.Load += new System.EventHandler(this.User_Manage_Load);
@@ -307,15 +250,7 @@ namespace Creative_Library
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button User_DELETE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn User_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn User_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Phone_Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn e_Mail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Loan_Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Return_Status;
+        private System.Windows.Forms.Button USER_DELETE;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label15;
@@ -324,14 +259,15 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button SEARCH;
+        private System.Windows.Forms.Button PW_RESET;
+        private System.Windows.Forms.Button SEARCH_UM;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button UM;
-        private System.Windows.Forms.Button AMD;
-        private System.Windows.Forms.Button BM;
+        private System.Windows.Forms.Button UM_UM;
+        private System.Windows.Forms.Button AMD_UM;
+        private System.Windows.Forms.Button BM_UM;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
