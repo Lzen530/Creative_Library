@@ -53,16 +53,6 @@ namespace Creative_Library
             this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e) // 도서 검색 버튼
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e) // 도서 반납 버튼
-        {
-
-        }
-
         private void LOGOUT_LOAN_RETURN_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("정말로 로그아웃하시겠습니까?", "로그아웃", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -84,6 +74,152 @@ namespace Creative_Library
 
             // 3. INSERT(추가) 후 도서, 대출, 회원의 테이블을 조인하고 출력해서
             //    고유번호, 도서이름, 저자, 출판사, 대출번호, 회원이름, 아이디, 대출일자, 반납일자가 다시 나오게 한다.
+            
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    // 1. 선택한 행의 인덱스 가져오기
+                    DataGridViewRow rowIndex = dataGridView1.SelectedRows[0];
+
+                    string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
+
+                    MySqlConnection connection = new MySqlConnection(connectionstring);
+                    connection.Open();
+
+
+                    string userid = USERID_BLR.Text.Trim();
+                    string loandate = LOANDATE_BLR.Text.Trim();
+
+                    // 2. 예외 처리
+                    // 2-1. 이미 대출한 도서를 또 대출하는 경우
+
+
+                    // 2-2. 입력한 도서의 정보가 부족할 경우
+                    if (string.IsNullOrEmpty(userid) || string.IsNullOrEmpty(loandate))
+                    {
+                        MessageBox.Show("전부 입력되지 않았습니다.");
+                        return;
+                    }
+
+                    // 2-3 입력한 대출일이 올바른 형식으로 입력되지 않은 경우
+                    DateTime loanDate;
+                    if (!DateTime.TryParse(loandate, out loanDate))
+                    {// DateTime 형식으로 변환 시도. 성공시 true 결과는 out으로, 실패시 false.
+                        MessageBox.Show("대출일은 2023-01-01 형식으로 입력해주세요.");
+                        return;
+                    }
+                    string LoanDate = loanDate.ToString("yyyy-MM-dd");
+
+                    // 3. 데이터 추가
+                    string QueryBook = "INSERT INTO 대출(아이디, 고유번호, 대출일, 예정반납일) VALUES(@Userid, @Booknumber, @Loandate, @Returndate)";
+                    MySqlCommand command = new MySqlCommand(QueryBook, connection);
+
+
+                    DateTime returndate = loanDate.AddDays(14);
+                    string returnDate = returndate.ToString("yyyy-MM-dd");
+
+                    command.Parameters.AddWithValue("@Userid", userid);
+                    command.Parameters.AddWithValue("@Booknumber", dataGridView1.SelectedRows[0].Cells["고유번호"].Value.ToString());
+                    command.Parameters.AddWithValue("@Loandate", LoanDate);
+                    command.Parameters.AddWithValue("@Returndate", returnDate);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    MessageBox.Show("대출 처리되었습니다.");
+
+                    // 4. 데이터그리드뷰 업데이트
+                    LoadDataIntoDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void RETURN_LOAN_RETURN_Click(object sender, EventArgs e) // 도서 반납 버튼
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    // 1. 선택한 행의 인덱스 가져오기
+                    DataGridViewRow rowIndex = dataGridView1.SelectedRows[0];
+
+                    // 2. 데이터 가져오기
+                    string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
+
+                    // 3. 삭제 버튼 이벤트 처리
+                    // 선택한 행의 데이터를 데이터베이스에서 삭제
+                    string QueryLoan = "DELETE FROM 대출 WHERE 고유번호 = @고유번호";
+
+                    using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                    {
+                        connection.Open();
+
+                        MySqlCommand command = new MySqlCommand(QueryLoan, connection);
+                        command.Parameters.AddWithValue("@고유번호", bookNumber);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("반납 처리되었습니다.");
+
+                    // 4. 데이터그리드뷰 업데이트
+                    LoadDataIntoDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SEARCH_LOAN_RETURN_Click(object sender, EventArgs e) // 도서 검색 버튼
+        {
+            try
+            {
+                string bookname = SEARCH_BOOKNAME_BLR.Text.Trim();
+                string author = SEARCH_AUTHOR_BLR.Text.Trim();
+                string publisher = SEARCH_PUBLISHER_BLR.Text.Trim();
+                string booknumber = SEARCH_BOOKNUMBER_BLR.Text.Trim();
+
+                string SearchQuery = "SELECT 도서.고유번호, 도서.도서이름, 도서.저자, 도서.출판사, 대출.대출번호, 회원.이름, 회원.아이디, 대출.대출일, 대출.예정반납일 " +
+                                     "FROM 대출 " +
+                                     "INNER JOIN 회원 ON 대출.아이디 = 회원.아이디 " +
+                                     "RIGHT OUTER JOIN 도서 ON 대출.고유번호 = 도서.고유번호 WHERE 1=1";
+
+                if (!string.IsNullOrEmpty(bookname))
+                {
+                    SearchQuery += $" AND 도서.도서이름 LIKE '%{bookname}%'";
+                }
+
+                if (!string.IsNullOrEmpty(author))
+                {
+                    SearchQuery += $" AND 도서.저자 LIKE '%{author}%'";
+                }
+
+                if (!string.IsNullOrEmpty(publisher))
+                {
+                    SearchQuery += $" AND 도서.출판사 LIKE '%{publisher}%'";
+                }
+
+                if (!string.IsNullOrEmpty(booknumber))
+                {
+                    SearchQuery += $" AND 도서.고유번호 = '{booknumber}'";
+                }
+
+                SqlQuery = SearchQuery;
+
+                // 데이터그리드뷰 업데이트
+                LoadDataIntoDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("검색중 오류가 발생했습니다." + ex.Message);
+            }
         }
     }
 }

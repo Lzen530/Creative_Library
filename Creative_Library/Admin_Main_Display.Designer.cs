@@ -46,24 +46,15 @@ namespace Creative_Library
             this.PUBLISHER_AMD = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.BOOKNUMBER_AMD = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.USERNAME_AMD = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.USERID_AMD = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.PHONE_AMD = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.INSERT_AMD = new System.Windows.Forms.Button();
             this.UPDATE_AMD = new System.Windows.Forms.Button();
             this.DELETE_AMD = new System.Windows.Forms.Button();
-            this.LOAN_AMD = new System.Windows.Forms.Button();
-            this.RETURN_AMD = new System.Windows.Forms.Button();
             this.SEARCH_AMD = new System.Windows.Forms.Button();
             this.UMD_AMD = new System.Windows.Forms.Button();
             this.BM_AMD = new System.Windows.Forms.Button();
             this.BOOK_INSERT_UPDATE_DELETE_AMD = new System.Windows.Forms.Button();
-            this.BOOK_LOAN_RETURN_AMD = new System.Windows.Forms.Button();
             this.LOGOUT_AMD = new System.Windows.Forms.Button();
             this.AMD_AMD = new System.Windows.Forms.Button();
             this.LOAN_RETURN_AMD = new System.Windows.Forms.Button();
@@ -79,7 +70,7 @@ namespace Creative_Library
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(947, 404);
+            this.dataGridView1.Size = new System.Drawing.Size(597, 404);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
@@ -92,21 +83,22 @@ namespace Creative_Library
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(595, 80);
+            this.textBox2.Location = new System.Drawing.Point(243, 81);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 12;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(243, 80);
+            this.textBox3.Location = new System.Drawing.Point(411, 81);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 21);
             this.textBox3.TabIndex = 13;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(411, 80);
+            this.textBox4.Location = new System.Drawing.Point(595, 81);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 21);
             this.textBox4.TabIndex = 14;
@@ -150,7 +142,7 @@ namespace Creative_Library
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(989, 169);
+            this.label5.Location = new System.Drawing.Point(654, 255);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 12);
             this.label5.TabIndex = 24;
@@ -159,7 +151,7 @@ namespace Creative_Library
             // BOOKNAME_AMD
             // 
             this.BOOKNAME_AMD.Enabled = false;
-            this.BOOKNAME_AMD.Location = new System.Drawing.Point(1052, 165);
+            this.BOOKNAME_AMD.Location = new System.Drawing.Point(717, 251);
             this.BOOKNAME_AMD.Name = "BOOKNAME_AMD";
             this.BOOKNAME_AMD.Size = new System.Drawing.Size(100, 21);
             this.BOOKNAME_AMD.TabIndex = 23;
@@ -167,7 +159,7 @@ namespace Creative_Library
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(989, 204);
+            this.label6.Location = new System.Drawing.Point(654, 290);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 26;
@@ -176,7 +168,7 @@ namespace Creative_Library
             // AUTHOR_AMD
             // 
             this.AUTHOR_AMD.Enabled = false;
-            this.AUTHOR_AMD.Location = new System.Drawing.Point(1052, 201);
+            this.AUTHOR_AMD.Location = new System.Drawing.Point(717, 287);
             this.AUTHOR_AMD.Name = "AUTHOR_AMD";
             this.AUTHOR_AMD.Size = new System.Drawing.Size(100, 21);
             this.AUTHOR_AMD.TabIndex = 25;
@@ -184,7 +176,7 @@ namespace Creative_Library
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(989, 240);
+            this.label7.Location = new System.Drawing.Point(654, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 12);
             this.label7.TabIndex = 28;
@@ -193,7 +185,7 @@ namespace Creative_Library
             // PUBLISHER_AMD
             // 
             this.PUBLISHER_AMD.Enabled = false;
-            this.PUBLISHER_AMD.Location = new System.Drawing.Point(1052, 237);
+            this.PUBLISHER_AMD.Location = new System.Drawing.Point(717, 323);
             this.PUBLISHER_AMD.Name = "PUBLISHER_AMD";
             this.PUBLISHER_AMD.Size = new System.Drawing.Size(100, 21);
             this.PUBLISHER_AMD.TabIndex = 27;
@@ -201,7 +193,7 @@ namespace Creative_Library
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(989, 132);
+            this.label8.Location = new System.Drawing.Point(654, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 12);
             this.label8.TabIndex = 30;
@@ -210,61 +202,10 @@ namespace Creative_Library
             // BOOKNUMBER_AMD
             // 
             this.BOOKNUMBER_AMD.Enabled = false;
-            this.BOOKNUMBER_AMD.Location = new System.Drawing.Point(1052, 129);
+            this.BOOKNUMBER_AMD.Location = new System.Drawing.Point(717, 215);
             this.BOOKNUMBER_AMD.Name = "BOOKNUMBER_AMD";
             this.BOOKNUMBER_AMD.Size = new System.Drawing.Size(100, 21);
             this.BOOKNUMBER_AMD.TabIndex = 29;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(988, 272);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 12);
-            this.label13.TabIndex = 41;
-            this.label13.Text = "회원 이름";
-            // 
-            // USERNAME_AMD
-            // 
-            this.USERNAME_AMD.Enabled = false;
-            this.USERNAME_AMD.Location = new System.Drawing.Point(1050, 269);
-            this.USERNAME_AMD.Name = "USERNAME_AMD";
-            this.USERNAME_AMD.Size = new System.Drawing.Size(100, 21);
-            this.USERNAME_AMD.TabIndex = 40;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(988, 308);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 12);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "아이디";
-            // 
-            // USERID_AMD
-            // 
-            this.USERID_AMD.Enabled = false;
-            this.USERID_AMD.Location = new System.Drawing.Point(1050, 305);
-            this.USERID_AMD.Name = "USERID_AMD";
-            this.USERID_AMD.Size = new System.Drawing.Size(100, 21);
-            this.USERID_AMD.TabIndex = 42;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(988, 344);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 12);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "전화번호";
-            // 
-            // PHONE_AMD
-            // 
-            this.PHONE_AMD.Enabled = false;
-            this.PHONE_AMD.Location = new System.Drawing.Point(1050, 341);
-            this.PHONE_AMD.Name = "PHONE_AMD";
-            this.PHONE_AMD.Size = new System.Drawing.Size(100, 21);
-            this.PHONE_AMD.TabIndex = 44;
             // 
             // comboBox1
             // 
@@ -285,7 +226,7 @@ namespace Creative_Library
             // INSERT_AMD
             // 
             this.INSERT_AMD.Enabled = false;
-            this.INSERT_AMD.Location = new System.Drawing.Point(975, 391);
+            this.INSERT_AMD.Location = new System.Drawing.Point(629, 358);
             this.INSERT_AMD.Name = "INSERT_AMD";
             this.INSERT_AMD.Size = new System.Drawing.Size(71, 31);
             this.INSERT_AMD.TabIndex = 50;
@@ -296,7 +237,7 @@ namespace Creative_Library
             // UPDATE_AMD
             // 
             this.UPDATE_AMD.Enabled = false;
-            this.UPDATE_AMD.Location = new System.Drawing.Point(1050, 391);
+            this.UPDATE_AMD.Location = new System.Drawing.Point(704, 358);
             this.UPDATE_AMD.Name = "UPDATE_AMD";
             this.UPDATE_AMD.Size = new System.Drawing.Size(70, 31);
             this.UPDATE_AMD.TabIndex = 51;
@@ -307,35 +248,13 @@ namespace Creative_Library
             // DELETE_AMD
             // 
             this.DELETE_AMD.Enabled = false;
-            this.DELETE_AMD.Location = new System.Drawing.Point(1126, 391);
+            this.DELETE_AMD.Location = new System.Drawing.Point(780, 358);
             this.DELETE_AMD.Name = "DELETE_AMD";
             this.DELETE_AMD.Size = new System.Drawing.Size(70, 31);
             this.DELETE_AMD.TabIndex = 52;
             this.DELETE_AMD.Text = "삭제";
             this.DELETE_AMD.UseVisualStyleBackColor = true;
             this.DELETE_AMD.Click += new System.EventHandler(this.DELETE_AMD_Click);
-            // 
-            // LOAN_AMD
-            // 
-            this.LOAN_AMD.Enabled = false;
-            this.LOAN_AMD.Location = new System.Drawing.Point(975, 435);
-            this.LOAN_AMD.Name = "LOAN_AMD";
-            this.LOAN_AMD.Size = new System.Drawing.Size(106, 31);
-            this.LOAN_AMD.TabIndex = 53;
-            this.LOAN_AMD.Text = "대출";
-            this.LOAN_AMD.UseVisualStyleBackColor = true;
-            this.LOAN_AMD.Click += new System.EventHandler(this.LOAN_AMD_Click);
-            // 
-            // RETURN_AMD
-            // 
-            this.RETURN_AMD.Enabled = false;
-            this.RETURN_AMD.Location = new System.Drawing.Point(1087, 435);
-            this.RETURN_AMD.Name = "RETURN_AMD";
-            this.RETURN_AMD.Size = new System.Drawing.Size(106, 31);
-            this.RETURN_AMD.TabIndex = 54;
-            this.RETURN_AMD.Text = "반납";
-            this.RETURN_AMD.UseVisualStyleBackColor = true;
-            this.RETURN_AMD.Click += new System.EventHandler(this.RETURN_AMD_Click);
             // 
             // SEARCH_AMD
             // 
@@ -377,19 +296,9 @@ namespace Creative_Library
             this.BOOK_INSERT_UPDATE_DELETE_AMD.UseVisualStyleBackColor = true;
             this.BOOK_INSERT_UPDATE_DELETE_AMD.Click += new System.EventHandler(this.BOOK_INSERT_UPDATE_DELETE_AMD_Click);
             // 
-            // BOOK_LOAN_RETURN_AMD
-            // 
-            this.BOOK_LOAN_RETURN_AMD.Location = new System.Drawing.Point(196, 41);
-            this.BOOK_LOAN_RETURN_AMD.Name = "BOOK_LOAN_RETURN_AMD";
-            this.BOOK_LOAN_RETURN_AMD.Size = new System.Drawing.Size(168, 32);
-            this.BOOK_LOAN_RETURN_AMD.TabIndex = 59;
-            this.BOOK_LOAN_RETURN_AMD.Text = "도서 대출/반납";
-            this.BOOK_LOAN_RETURN_AMD.UseVisualStyleBackColor = true;
-            this.BOOK_LOAN_RETURN_AMD.Click += new System.EventHandler(this.BOOK_LOAN_RETURN_AMD_Click);
-            // 
             // LOGOUT_AMD
             // 
-            this.LOGOUT_AMD.Location = new System.Drawing.Point(1109, 12);
+            this.LOGOUT_AMD.Location = new System.Drawing.Point(780, 5);
             this.LOGOUT_AMD.Name = "LOGOUT_AMD";
             this.LOGOUT_AMD.Size = new System.Drawing.Size(84, 37);
             this.LOGOUT_AMD.TabIndex = 60;
@@ -409,11 +318,11 @@ namespace Creative_Library
             // 
             // LOAN_RETURN_AMD
             // 
-            this.LOAN_RETURN_AMD.Location = new System.Drawing.Point(411, 19);
+            this.LOAN_RETURN_AMD.Location = new System.Drawing.Point(629, 395);
             this.LOAN_RETURN_AMD.Name = "LOAN_RETURN_AMD";
-            this.LOAN_RETURN_AMD.Size = new System.Drawing.Size(146, 23);
+            this.LOAN_RETURN_AMD.Size = new System.Drawing.Size(218, 31);
             this.LOAN_RETURN_AMD.TabIndex = 62;
-            this.LOAN_RETURN_AMD.Text = "대출반납 임시 이동버튼";
+            this.LOAN_RETURN_AMD.Text = "대출 / 반납";
             this.LOAN_RETURN_AMD.UseVisualStyleBackColor = true;
             this.LOAN_RETURN_AMD.Click += new System.EventHandler(this.LOAN_RETURN_AMD_Click);
             // 
@@ -421,28 +330,19 @@ namespace Creative_Library
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 534);
+            this.ClientSize = new System.Drawing.Size(871, 534);
             this.Controls.Add(this.LOAN_RETURN_AMD);
             this.Controls.Add(this.AMD_AMD);
             this.Controls.Add(this.LOGOUT_AMD);
-            this.Controls.Add(this.BOOK_LOAN_RETURN_AMD);
             this.Controls.Add(this.BOOK_INSERT_UPDATE_DELETE_AMD);
             this.Controls.Add(this.BM_AMD);
             this.Controls.Add(this.UMD_AMD);
             this.Controls.Add(this.SEARCH_AMD);
-            this.Controls.Add(this.RETURN_AMD);
-            this.Controls.Add(this.LOAN_AMD);
             this.Controls.Add(this.DELETE_AMD);
             this.Controls.Add(this.UPDATE_AMD);
             this.Controls.Add(this.INSERT_AMD);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.PHONE_AMD);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.USERID_AMD);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.USERNAME_AMD);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.BOOKNUMBER_AMD);
             this.Controls.Add(this.label7);
@@ -487,24 +387,15 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox PUBLISHER_AMD;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox BOOKNUMBER_AMD;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox USERNAME_AMD;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox USERID_AMD;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox PHONE_AMD;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button INSERT_AMD;
         private System.Windows.Forms.Button UPDATE_AMD;
         private System.Windows.Forms.Button DELETE_AMD;
-        private System.Windows.Forms.Button LOAN_AMD;
-        private System.Windows.Forms.Button RETURN_AMD;
         private System.Windows.Forms.Button SEARCH_AMD;
         private System.Windows.Forms.Button UMD_AMD;
         private System.Windows.Forms.Button BM_AMD;
         private System.Windows.Forms.Button BOOK_INSERT_UPDATE_DELETE_AMD;
-        private System.Windows.Forms.Button BOOK_LOAN_RETURN_AMD;
         private System.Windows.Forms.Button LOGOUT_AMD;
         private System.Windows.Forms.Button AMD_AMD;
         private System.Windows.Forms.Button LOAN_RETURN_AMD;

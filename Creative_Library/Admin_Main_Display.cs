@@ -13,10 +13,7 @@ namespace Creative_Library
 {
     public partial class Admin_Main_Display : Form
     {
-        string SqlQuery = "SELECT 도서.고유번호, 도서.도서이름, 도서.저자, 도서.출판사, 회원.이름, 회원.아이디, 대출.대출일, 대출.예정반납일 " +
-                          "FROM 대출 " +
-                          "INNER JOIN 회원 ON 대출.아이디 = 회원.아이디 " +
-                          "RIGHT OUTER JOIN 도서 ON 대출.고유번호 = 도서.고유번호";
+        string SqlQuery = "SELECT * FROM 도서";
         public Admin_Main_Display()
         {
             InitializeComponent();
@@ -73,39 +70,14 @@ namespace Creative_Library
 
         private void BOOK_INSERT_UPDATE_DELETE_AMD_Click(object sender, EventArgs e) // 도서 추가/수정/삭제 on off 기능
         {
+            BOOKNAME_AMD.Enabled = !BOOKNAME_AMD.Enabled;
+            AUTHOR_AMD.Enabled = !AUTHOR_AMD.Enabled;
+            PUBLISHER_AMD.Enabled = !PUBLISHER_AMD.Enabled;
+            BOOKNUMBER_AMD.Enabled = !BOOKNUMBER_AMD.Enabled;
+
             DELETE_AMD.Enabled = !DELETE_AMD.Enabled;
             INSERT_AMD.Enabled = !INSERT_AMD.Enabled;
             UPDATE_AMD.Enabled = !UPDATE_AMD.Enabled;
-
-            UpdateButtonStates();
-        }
-
-        private void BOOK_LOAN_RETURN_AMD_Click(object sender, EventArgs e) // 도서 대출/반납 on off 기능
-        {
-            LOAN_AMD.Enabled = !LOAN_AMD.Enabled;
-            RETURN_AMD.Enabled = !RETURN_AMD.Enabled;
-
-            USERNAME_AMD.Enabled = !USERNAME_AMD.Enabled;
-            USERID_AMD.Enabled = !USERID_AMD.Enabled;
-            PHONE_AMD.Enabled = !PHONE_AMD.Enabled;
-
-            UpdateButtonStates();
-        }
-
-        private void UpdateButtonStates()
-        {
-            BOOKNAME_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
-            AUTHOR_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
-            PUBLISHER_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
-            BOOKNUMBER_AMD.Enabled = BOOK_LOAN_RETURN_AMD.Enabled || SEARCH_AMD.Enabled;
-
-            if (!DELETE_AMD.Enabled && !INSERT_AMD.Enabled && !UPDATE_AMD.Enabled && !LOAN_AMD.Enabled && !RETURN_AMD.Enabled)
-            {
-                BOOKNAME_AMD.Enabled = false;
-                AUTHOR_AMD.Enabled = false;
-                PUBLISHER_AMD.Enabled = false;
-                BOOKNUMBER_AMD.Enabled = false;
-            }
         }
 
         private void LOGOUT_AMD_Click(object sender, EventArgs e) // 로그아웃
@@ -199,8 +171,29 @@ namespace Creative_Library
                     // 가져온 값을 사용하여 데이터 수정 작업 수행 
 
                     // 4. 예외 처리
-                    // 고유번호는 고유한 하나의 정보만을 가질 수 있기에 이미 존재하는 고유번호로 수정하려 시도하면 "이미 존재하는 고유번호입니다." 라는 메시지가 나와야한다.
+                    // 고유번호는 고유한 하나의 정보만을 가질 수 있기에 이미 존재하는 고유번호로 수정하려
+                    // 시도하면 "이미 존재하는 고유번호입니다." 라는 메시지가 나와야한다.
 
+                    if (bookNumber == booknumber)
+                    {
+                        string QueryBookNumber = "SELECT count(*) FROM 도서 WHERE 고유번호 = @booknumber";
+
+                        using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                        {
+                            connection.Open();
+
+                            MySqlCommand command1 = new MySqlCommand(QueryBookNumber, connection);
+                            command1.Parameters.AddWithValue("@BookNumber", booknumber);
+
+                            int duplicateCount = Convert.ToInt32(command1.ExecuteScalar());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("이미 존재하는 고유번호입니다.");
+                        return;
+                    }
+                    
                     if (string.IsNullOrEmpty(booknumber) || string.IsNullOrEmpty(bookname) || string.IsNullOrEmpty(author) || string.IsNullOrEmpty(publisher))
                     {
                         MessageBox.Show("수정할 도서의 정보가 부족합니다.");
@@ -293,7 +286,44 @@ namespace Creative_Library
 
         private void SEARCH_AMD_Click(object sender, EventArgs e) // 도서 검색 버튼
         {
+            try
+            {
+                string bookname = textBox1.Text.Trim();
+                string author = textBox2.Text.Trim();
+                string publisher = textBox3.Text.Trim();
+                string booknumber = textBox4.Text.Trim();
 
+                string SearchQuery = "SELECT * FROM 도서 WHERE 1=1";
+
+                if (!string.IsNullOrEmpty(bookname))
+                {
+                    SearchQuery += $" AND 도서.도서이름 LIKE '%{bookname}%'";
+                }
+
+                if (!string.IsNullOrEmpty(author))
+                {
+                    SearchQuery += $" AND 도서.저자 LIKE '%{author}%'";
+                }
+
+                if (!string.IsNullOrEmpty(publisher))
+                {
+                    SearchQuery += $" AND 도서.출판사 LIKE '%{publisher}%'";
+                }
+
+                if (!string.IsNullOrEmpty(booknumber))
+                {
+                    SearchQuery += $" AND 도서.고유번호 = '{booknumber}'";
+                }
+
+                SqlQuery = SearchQuery;
+
+                // 데이터그리드뷰 업데이트
+                LoadDataIntoDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("검색중 오류가 발생했습니다." + ex.Message);
+            }
         }
 
         private Book_Loan_Return BLR;
@@ -305,6 +335,11 @@ namespace Creative_Library
             }
 
             BLR.Show();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

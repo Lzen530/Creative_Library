@@ -34,11 +34,11 @@ namespace Creative_Library
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.SEARCH = new System.Windows.Forms.Button();
+            this.SEARCH_BOOKNUMBER_GUEST = new System.Windows.Forms.TextBox();
+            this.SEARCH_PUBLISHER_GUEST = new System.Windows.Forms.TextBox();
+            this.SEARCH_AUTHOR_GUEST = new System.Windows.Forms.TextBox();
+            this.SEARCH_BOOKNAME_GUEST = new System.Windows.Forms.TextBox();
+            this.SEARCH_GUEST = new System.Windows.Forms.Button();
             this.LOGIN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -90,43 +90,43 @@ namespace Creative_Library
             this.label1.TabIndex = 24;
             this.label1.Text = "도서 이름";
             // 
-            // textBox4
+            // SEARCH_BOOKNUMBER_GUEST
             // 
-            this.textBox4.Location = new System.Drawing.Point(405, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 23;
+            this.SEARCH_BOOKNUMBER_GUEST.Location = new System.Drawing.Point(589, 18);
+            this.SEARCH_BOOKNUMBER_GUEST.Name = "SEARCH_BOOKNUMBER_GUEST";
+            this.SEARCH_BOOKNUMBER_GUEST.Size = new System.Drawing.Size(100, 21);
+            this.SEARCH_BOOKNUMBER_GUEST.TabIndex = 23;
             // 
-            // textBox3
+            // SEARCH_PUBLISHER_GUEST
             // 
-            this.textBox3.Location = new System.Drawing.Point(237, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 22;
+            this.SEARCH_PUBLISHER_GUEST.Location = new System.Drawing.Point(405, 18);
+            this.SEARCH_PUBLISHER_GUEST.Name = "SEARCH_PUBLISHER_GUEST";
+            this.SEARCH_PUBLISHER_GUEST.Size = new System.Drawing.Size(100, 21);
+            this.SEARCH_PUBLISHER_GUEST.TabIndex = 22;
             // 
-            // textBox2
+            // SEARCH_AUTHOR_GUEST
             // 
-            this.textBox2.Location = new System.Drawing.Point(589, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 21;
+            this.SEARCH_AUTHOR_GUEST.Location = new System.Drawing.Point(237, 18);
+            this.SEARCH_AUTHOR_GUEST.Name = "SEARCH_AUTHOR_GUEST";
+            this.SEARCH_AUTHOR_GUEST.Size = new System.Drawing.Size(100, 21);
+            this.SEARCH_AUTHOR_GUEST.TabIndex = 21;
             // 
-            // textBox1
+            // SEARCH_BOOKNAME_GUEST
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 20;
+            this.SEARCH_BOOKNAME_GUEST.Location = new System.Drawing.Point(77, 18);
+            this.SEARCH_BOOKNAME_GUEST.Name = "SEARCH_BOOKNAME_GUEST";
+            this.SEARCH_BOOKNAME_GUEST.Size = new System.Drawing.Size(100, 21);
+            this.SEARCH_BOOKNAME_GUEST.TabIndex = 20;
             // 
-            // SEARCH
+            // SEARCH_GUEST
             // 
-            this.SEARCH.Location = new System.Drawing.Point(695, 18);
-            this.SEARCH.Name = "SEARCH";
-            this.SEARCH.Size = new System.Drawing.Size(93, 21);
-            this.SEARCH.TabIndex = 19;
-            this.SEARCH.Text = "검색";
-            this.SEARCH.UseVisualStyleBackColor = true;
-            this.SEARCH.Click += new System.EventHandler(this.SEARCH_Click);
+            this.SEARCH_GUEST.Location = new System.Drawing.Point(695, 18);
+            this.SEARCH_GUEST.Name = "SEARCH_GUEST";
+            this.SEARCH_GUEST.Size = new System.Drawing.Size(93, 21);
+            this.SEARCH_GUEST.TabIndex = 19;
+            this.SEARCH_GUEST.Text = "검색";
+            this.SEARCH_GUEST.UseVisualStyleBackColor = true;
+            this.SEARCH_GUEST.Click += new System.EventHandler(this.SEARCH_Click);
             // 
             // LOGIN
             // 
@@ -148,11 +148,11 @@ namespace Creative_Library
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.SEARCH);
+            this.Controls.Add(this.SEARCH_BOOKNUMBER_GUEST);
+            this.Controls.Add(this.SEARCH_PUBLISHER_GUEST);
+            this.Controls.Add(this.SEARCH_AUTHOR_GUEST);
+            this.Controls.Add(this.SEARCH_BOOKNAME_GUEST);
+            this.Controls.Add(this.SEARCH_GUEST);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Not_User_Search_Book";
             this.Text = "Not_User_Search_Book";
@@ -170,11 +170,11 @@ namespace Creative_Library
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button SEARCH;
+        private System.Windows.Forms.TextBox SEARCH_BOOKNUMBER_GUEST;
+        private System.Windows.Forms.TextBox SEARCH_PUBLISHER_GUEST;
+        private System.Windows.Forms.TextBox SEARCH_AUTHOR_GUEST;
+        private System.Windows.Forms.TextBox SEARCH_BOOKNAME_GUEST;
+        private System.Windows.Forms.Button SEARCH_GUEST;
         private System.Windows.Forms.Button LOGIN;
     }
 }

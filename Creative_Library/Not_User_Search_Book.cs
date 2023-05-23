@@ -18,7 +18,7 @@ namespace Creative_Library
             InitializeComponent();
         }
 
-        string SqlQuery = "SELECT * FROM 도서 ";
+        string SqlQuery = "SELECT * FROM 도서";
 
         string connectionstring = "Server=localhost; Database=회원; Uid=Lzen; Pwd=!fmwps530^^;";
 
@@ -45,7 +45,44 @@ namespace Creative_Library
 
         private void SEARCH_Click(object sender, EventArgs e) // 도서 검색 버튼
         {
-            LoadDataIntoDataGridView();
+            try
+            {
+                string bookname = SEARCH_BOOKNAME_GUEST.Text.Trim();
+                string author = SEARCH_AUTHOR_GUEST.Text.Trim();
+                string publisher = SEARCH_PUBLISHER_GUEST.Text.Trim();
+                string booknumber = SEARCH_BOOKNUMBER_GUEST.Text.Trim();
+
+                string SearchQuery = "SELECT * FROM 도서 WHERE 1=1";
+
+                if (!string.IsNullOrEmpty(bookname))
+                {
+                    SearchQuery += $" AND 도서.도서이름 LIKE '%{bookname}%'";
+                }
+
+                if (!string.IsNullOrEmpty(author))
+                {
+                    SearchQuery += $" AND 도서.저자 LIKE '%{author}%'";
+                }
+
+                if (!string.IsNullOrEmpty(publisher))
+                {
+                    SearchQuery += $" AND 도서.출판사 LIKE '%{publisher}%'";
+                }
+
+                if (!string.IsNullOrEmpty(booknumber))
+                {
+                    SearchQuery += $" AND 도서.고유번호 = '{booknumber}'";
+                }
+
+                SqlQuery = SearchQuery;
+
+                // 데이터그리드뷰 업데이트
+                LoadDataIntoDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("검색중 오류가 발생했습니다." + ex.Message);
+            }
         }
 
         private Main_Display MD;
