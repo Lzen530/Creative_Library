@@ -30,24 +30,20 @@ namespace Creative_Library
         private void InitializeComponent()
         {
             this.USER_DELETE = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.USERPHONE_UM = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.USERID_UM = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.USERNAME_UM = new System.Windows.Forms.TextBox();
             this.PW_RESET = new System.Windows.Forms.Button();
             this.SEARCH_UM = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.PASSWORD = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.UM_UM = new System.Windows.Forms.Button();
             this.AMD_UM = new System.Windows.Forms.Button();
-            this.BM_UM = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ALBA_CONTROL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,22 +55,7 @@ namespace Creative_Library
             this.USER_DELETE.TabIndex = 4;
             this.USER_DELETE.Text = "회원 삭제";
             this.USER_DELETE.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(487, 96);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 12);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "메일 주소";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(550, 93);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 21);
-            this.textBox9.TabIndex = 57;
+            this.USER_DELETE.Click += new System.EventHandler(this.USER_DELETE_Click);
             // 
             // label15
             // 
@@ -85,12 +66,12 @@ namespace Creative_Library
             this.label15.TabIndex = 56;
             this.label15.Text = "전화번호";
             // 
-            // textBox15
+            // USERPHONE_UM
             // 
-            this.textBox15.Location = new System.Drawing.Point(375, 93);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 21);
-            this.textBox15.TabIndex = 55;
+            this.USERPHONE_UM.Location = new System.Drawing.Point(375, 93);
+            this.USERPHONE_UM.Name = "USERPHONE_UM";
+            this.USERPHONE_UM.Size = new System.Drawing.Size(100, 21);
+            this.USERPHONE_UM.TabIndex = 55;
             // 
             // label14
             // 
@@ -101,12 +82,12 @@ namespace Creative_Library
             this.label14.TabIndex = 54;
             this.label14.Text = "아이디";
             // 
-            // textBox14
+            // USERID_UM
             // 
-            this.textBox14.Location = new System.Drawing.Point(203, 93);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 21);
-            this.textBox14.TabIndex = 53;
+            this.USERID_UM.Location = new System.Drawing.Point(203, 93);
+            this.USERID_UM.Name = "USERID_UM";
+            this.USERID_UM.Size = new System.Drawing.Size(100, 21);
+            this.USERID_UM.TabIndex = 53;
             // 
             // label13
             // 
@@ -117,21 +98,22 @@ namespace Creative_Library
             this.label13.TabIndex = 52;
             this.label13.Text = "회원 이름";
             // 
-            // textBox13
+            // USERNAME_UM
             // 
-            this.textBox13.Location = new System.Drawing.Point(73, 93);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(73, 21);
-            this.textBox13.TabIndex = 51;
+            this.USERNAME_UM.Location = new System.Drawing.Point(73, 93);
+            this.USERNAME_UM.Name = "USERNAME_UM";
+            this.USERNAME_UM.Size = new System.Drawing.Size(73, 21);
+            this.USERNAME_UM.TabIndex = 51;
             // 
             // PW_RESET
             // 
-            this.PW_RESET.Location = new System.Drawing.Point(141, 59);
+            this.PW_RESET.Location = new System.Drawing.Point(593, 58);
             this.PW_RESET.Name = "PW_RESET";
             this.PW_RESET.Size = new System.Drawing.Size(114, 26);
             this.PW_RESET.TabIndex = 59;
             this.PW_RESET.Text = "비밀번호 재설정";
             this.PW_RESET.UseVisualStyleBackColor = true;
+            this.PW_RESET.Click += new System.EventHandler(this.PW_RESET_Click);
             // 
             // SEARCH_UM
             // 
@@ -143,37 +125,21 @@ namespace Creative_Library
             this.SEARCH_UM.UseVisualStyleBackColor = true;
             this.SEARCH_UM.Click += new System.EventHandler(this.SEARCH_Click);
             // 
-            // textBox1
+            // PASSWORD
             // 
-            this.textBox1.Location = new System.Drawing.Point(425, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 61;
+            this.PASSWORD.Location = new System.Drawing.Point(487, 62);
+            this.PASSWORD.Name = "PASSWORD";
+            this.PASSWORD.Size = new System.Drawing.Size(100, 21);
+            this.PASSWORD.TabIndex = 61;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(362, 66);
+            this.label1.Location = new System.Drawing.Point(424, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 62;
             this.label1.Text = "비밀번호";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(650, 63);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(57, 20);
-            this.comboBox2.TabIndex = 64;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(587, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(57, 20);
-            this.comboBox1.TabIndex = 63;
             // 
             // UM_UM
             // 
@@ -196,16 +162,6 @@ namespace Creative_Library
             this.AMD_UM.UseVisualStyleBackColor = true;
             this.AMD_UM.Click += new System.EventHandler(this.AMD_Click);
             // 
-            // BM_UM
-            // 
-            this.BM_UM.Location = new System.Drawing.Point(172, 12);
-            this.BM_UM.Name = "BM_UM";
-            this.BM_UM.Size = new System.Drawing.Size(74, 24);
-            this.BM_UM.TabIndex = 69;
-            this.BM_UM.Text = "연체 관리";
-            this.BM_UM.UseVisualStyleBackColor = true;
-            this.BM_UM.Click += new System.EventHandler(this.BM_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
@@ -213,32 +169,39 @@ namespace Creative_Library
             this.dataGridView1.Location = new System.Drawing.Point(15, 120);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(692, 343);
             this.dataGridView1.TabIndex = 70;
+            // 
+            // ALBA_CONTROL
+            // 
+            this.ALBA_CONTROL.Location = new System.Drawing.Point(141, 58);
+            this.ALBA_CONTROL.Name = "ALBA_CONTROL";
+            this.ALBA_CONTROL.Size = new System.Drawing.Size(114, 26);
+            this.ALBA_CONTROL.TabIndex = 71;
+            this.ALBA_CONTROL.Text = "알바 권한부여";
+            this.ALBA_CONTROL.UseVisualStyleBackColor = true;
+            this.ALBA_CONTROL.Click += new System.EventHandler(this.ALBA_CONTROL_Click);
             // 
             // User_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 475);
+            this.Controls.Add(this.ALBA_CONTROL);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.BM_UM);
             this.Controls.Add(this.AMD_UM);
             this.Controls.Add(this.UM_UM);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.PASSWORD);
             this.Controls.Add(this.SEARCH_UM);
             this.Controls.Add(this.PW_RESET);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.USERPHONE_UM);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.USERID_UM);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.USERNAME_UM);
             this.Controls.Add(this.USER_DELETE);
             this.Name = "User_Manage";
             this.Text = "User_Manage";
@@ -251,23 +214,19 @@ namespace Creative_Library
 
         #endregion
         private System.Windows.Forms.Button USER_DELETE;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox USERPHONE_UM;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox USERID_UM;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox USERNAME_UM;
         private System.Windows.Forms.Button PW_RESET;
         private System.Windows.Forms.Button SEARCH_UM;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox PASSWORD;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button UM_UM;
         private System.Windows.Forms.Button AMD_UM;
-        private System.Windows.Forms.Button BM_UM;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button ALBA_CONTROL;
     }
 }

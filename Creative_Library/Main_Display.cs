@@ -75,7 +75,7 @@ namespace Creative_Library
                 connection.Open();
 
                 int login_status = 0;
-                int Role = 0;
+                string Role = "";
 
                 string query = "SELECT * FROM 회원 WHERE 아이디 = @Username";
 
@@ -89,15 +89,17 @@ namespace Creative_Library
                     if (id == (string)userAccount["아이디"] && pw == (string)userAccount["비밀번호"])
                     {
                         login_status = 1;
-                        Role = int.Parse(userAccount["역할"].ToString());
+                        Role = userAccount["역할"].ToString();
                     }
                 }
 
                 connection.Close();
 
+                
+
                 if (login_status == 1)
                 {
-                    if (Role == 2)
+                    if (Role == "user")
                     {
                         MessageBox.Show("일반 회원으로 로그인되었습니다.");
                         // 일반 사용자인 경우, 사용자 화면으로 이동
@@ -105,7 +107,7 @@ namespace Creative_Library
                         UMD.Show();
                         this.Hide();
                     }
-                    else if (Role == 1)
+                    else if (Role == "admin")
                     {
                         MessageBox.Show("관리자로 로그인되었습니다.");
                         // 관리자인 경우, 관리자 화면으로 이동

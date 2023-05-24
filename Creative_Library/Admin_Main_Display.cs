@@ -44,13 +44,6 @@ namespace Creative_Library
             this.Hide();
         }
 
-        private void BM_AMD_Click(object sender, EventArgs e) // 연체 관리 버튼
-        {
-            Book_Manage BM = new Book_Manage();
-            BM.Show();
-            this.Hide();
-        }
-
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
                // 잘못 추가함.

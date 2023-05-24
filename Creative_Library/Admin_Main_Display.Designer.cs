@@ -53,7 +53,6 @@ namespace Creative_Library
             this.DELETE_AMD = new System.Windows.Forms.Button();
             this.SEARCH_AMD = new System.Windows.Forms.Button();
             this.UMD_AMD = new System.Windows.Forms.Button();
-            this.BM_AMD = new System.Windows.Forms.Button();
             this.BOOK_INSERT_UPDATE_DELETE_AMD = new System.Windows.Forms.Button();
             this.LOGOUT_AMD = new System.Windows.Forms.Button();
             this.AMD_AMD = new System.Windows.Forms.Button();
@@ -276,16 +275,6 @@ namespace Creative_Library
             this.UMD_AMD.UseVisualStyleBackColor = true;
             this.UMD_AMD.Click += new System.EventHandler(this.UMD_AMD_Click);
             // 
-            // BM_AMD
-            // 
-            this.BM_AMD.Location = new System.Drawing.Point(182, 11);
-            this.BM_AMD.Name = "BM_AMD";
-            this.BM_AMD.Size = new System.Drawing.Size(74, 24);
-            this.BM_AMD.TabIndex = 57;
-            this.BM_AMD.Text = "연체 관리";
-            this.BM_AMD.UseVisualStyleBackColor = true;
-            this.BM_AMD.Click += new System.EventHandler(this.BM_AMD_Click);
-            // 
             // BOOK_INSERT_UPDATE_DELETE_AMD
             // 
             this.BOOK_INSERT_UPDATE_DELETE_AMD.Location = new System.Drawing.Point(22, 41);
@@ -335,7 +324,6 @@ namespace Creative_Library
             this.Controls.Add(this.AMD_AMD);
             this.Controls.Add(this.LOGOUT_AMD);
             this.Controls.Add(this.BOOK_INSERT_UPDATE_DELETE_AMD);
-            this.Controls.Add(this.BM_AMD);
             this.Controls.Add(this.UMD_AMD);
             this.Controls.Add(this.SEARCH_AMD);
             this.Controls.Add(this.DELETE_AMD);
@@ -394,7 +382,6 @@ namespace Creative_Library
         private System.Windows.Forms.Button DELETE_AMD;
         private System.Windows.Forms.Button SEARCH_AMD;
         private System.Windows.Forms.Button UMD_AMD;
-        private System.Windows.Forms.Button BM_AMD;
         private System.Windows.Forms.Button BOOK_INSERT_UPDATE_DELETE_AMD;
         private System.Windows.Forms.Button LOGOUT_AMD;
         private System.Windows.Forms.Button AMD_AMD;

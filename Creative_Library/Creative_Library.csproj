@@ -130,12 +130,6 @@
     <Compile Include="Book_Loan_Retrun.Designer.cs">
       <DependentUpon>Book_Loan_Retrun.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book_Manage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Book_Manage.Designer.cs">
-      <DependentUpon>Book_Manage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Database1DataSet.cs">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
     </Compile>
@@ -184,9 +178,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Book_Loan_Retrun.resx">
       <DependentUpon>Book_Loan_Retrun.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Book_Manage.resx">
-      <DependentUpon>Book_Manage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Display.resx">
       <DependentUpon>Main_Display.cs</DependentUpon>

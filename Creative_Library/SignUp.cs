@@ -47,17 +47,19 @@ namespace Creative_Library
                 return;
             }
 
-            string insertQuery = "INSERT INTO 회원(아이디, 비밀번호, 이름, 전화번호, 역할) VALUES(@Username, @Password, @Name, @Phone, 2)";
+            string insertQuery = "INSERT INTO 회원(아이디, 비밀번호, 이름, 전화번호, 역할) VALUES(@Username, @Password, @Name, @Phone, @User)";
 
             try
             {
                 connection.Open();
 
+                string user = "user";
                 MySqlCommand command = new MySqlCommand(insertQuery, connection);
                 command.Parameters.AddWithValue("@Username", id);
                 command.Parameters.AddWithValue("@Password", pw);
                 command.Parameters.AddWithValue("@Name", name);
                 command.Parameters.AddWithValue("@Phone", phone);
+                command.Parameters.AddWithValue("@User", user);
 
                 int rowsAffected = command.ExecuteNonQuery();
 
