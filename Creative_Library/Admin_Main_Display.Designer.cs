@@ -46,8 +46,6 @@ namespace Creative_Library
             this.PUBLISHER_AMD = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.BOOKNUMBER_AMD = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.INSERT_AMD = new System.Windows.Forms.Button();
             this.UPDATE_AMD = new System.Windows.Forms.Button();
             this.DELETE_AMD = new System.Windows.Forms.Button();
@@ -206,22 +204,6 @@ namespace Creative_Library
             this.BOOKNUMBER_AMD.Size = new System.Drawing.Size(100, 21);
             this.BOOKNUMBER_AMD.TabIndex = 29;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(634, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(77, 20);
-            this.comboBox1.TabIndex = 47;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(717, 48);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(77, 20);
-            this.comboBox2.TabIndex = 48;
-            // 
             // INSERT_AMD
             // 
             this.INSERT_AMD.Enabled = false;
@@ -329,8 +311,6 @@ namespace Creative_Library
             this.Controls.Add(this.DELETE_AMD);
             this.Controls.Add(this.UPDATE_AMD);
             this.Controls.Add(this.INSERT_AMD);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.BOOKNUMBER_AMD);
             this.Controls.Add(this.label7);
@@ -375,8 +355,6 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox PUBLISHER_AMD;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox BOOKNUMBER_AMD;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button INSERT_AMD;
         private System.Windows.Forms.Button UPDATE_AMD;
         private System.Windows.Forms.Button DELETE_AMD;

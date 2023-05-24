@@ -82,6 +82,7 @@ namespace Creative_Library
 
         private void User_Main_Display_Load(object sender, EventArgs e)
         {
+            /*
             try
             {
                 MySqlConnection connection = new MySqlConnection(connectionstring);
@@ -115,7 +116,7 @@ namespace Creative_Library
             {
                 MessageBox.Show(ex.Message);
             }
-
+            */
             LoadDataIntoDataGridView();
         }
 
