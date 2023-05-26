@@ -48,7 +48,6 @@ namespace Creative_Library
             this.LOAN_RETURN_AlBM = new System.Windows.Forms.Button();
             this.USER_SEARCH_AlBM = new System.Windows.Forms.Button();
             this.BOOK_SEARCH_AlBM = new System.Windows.Forms.Button();
-            this.re = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -217,22 +216,11 @@ namespace Creative_Library
             this.BOOK_SEARCH_AlBM.UseVisualStyleBackColor = true;
             this.BOOK_SEARCH_AlBM.Click += new System.EventHandler(this.BOOK_SEARCH_AlBM_Click);
             // 
-            // re
-            // 
-            this.re.Location = new System.Drawing.Point(608, 316);
-            this.re.Name = "re";
-            this.re.Size = new System.Drawing.Size(124, 35);
-            this.re.TabIndex = 124;
-            this.re.Text = "연체 여부 새로고침";
-            this.re.UseVisualStyleBackColor = true;
-            this.re.Click += new System.EventHandler(this.re_Click);
-            // 
             // Alba_Book_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 653);
-            this.Controls.Add(this.re);
             this.Controls.Add(this.BOOK_SEARCH_AlBM);
             this.Controls.Add(this.USER_SEARCH_AlBM);
             this.Controls.Add(this.LOAN_RETURN_AlBM);
@@ -283,6 +271,5 @@ namespace Creative_Library
         private System.Windows.Forms.Button LOAN_RETURN_AlBM;
         private System.Windows.Forms.Button USER_SEARCH_AlBM;
         private System.Windows.Forms.Button BOOK_SEARCH_AlBM;
-        private System.Windows.Forms.Button re;
     }
 }

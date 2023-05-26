@@ -112,7 +112,7 @@ namespace Creative_Library
                     string LoanDate = loanDate.ToString("yyyy-MM-dd");
 
                     // 3. 데이터 추가
-                    string QueryBook = "INSERT INTO 대출(아이디, 고유번호, 대출일, 예정반납일) VALUES(@Userid, @Booknumber, @Loandate, @Returndate)";
+                    string QueryBook = "INSERT INTO 대출(아이디, 고유번호, 대출일, 예정반납일, 연체여부) VALUES(@Userid, @Booknumber, @Loandate, @Returndate, @delinquency)";
                     MySqlCommand command = new MySqlCommand(QueryBook, connection);
 
 
@@ -123,6 +123,7 @@ namespace Creative_Library
                     command.Parameters.AddWithValue("@Booknumber", dataGridView1.SelectedRows[0].Cells["고유번호"].Value.ToString());
                     command.Parameters.AddWithValue("@Loandate", LoanDate);
                     command.Parameters.AddWithValue("@Returndate", returnDate);
+                    command.Parameters.AddWithValue("@delinquency", "x");
 
                     int rowsAffected = command.ExecuteNonQuery();
 
