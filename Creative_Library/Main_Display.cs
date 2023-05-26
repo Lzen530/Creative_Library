@@ -38,7 +38,7 @@ namespace Creative_Library
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // 비밀번호 입력란에서 Enter 키가 눌렸을 때 로그인 동작 수행
+                // 아이디 입력란에서 Enter 키가 눌렸을 때 로그인 동작 수행
                 LOGIN_Click(sender, e);
             }
         }

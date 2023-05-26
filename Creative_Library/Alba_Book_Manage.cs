@@ -160,5 +160,152 @@ namespace Creative_Library
             LoadDataIntoDataGridView_BOOK();
             LoadDataIntoDataGridView_USER();
         }
+
+        private void re_Click(object sender, EventArgs e)
+        {
+                // 1. 검색버튼 누를시 데이터베이스를 불러온다.
+                // 2. 대출한 회원들의 예정 반납일자를 불러온다.
+                // 3. DataTime을 이용해서 예정 반납일자와 현재 날짜를 비교한다.
+                // 4. if( 현재 날짜 > 예정 반납일자 )
+                // 4-1. 연체 여부를 O로 변경
+                // 4. else
+                // 4-2. 연체 여부는 X
+
+
+                string SearchQuery = "SELECT 도서.고유번호, 도서.도서이름, 대출.아이디, 대출.대출일, 대출.예정반납일, 대출.연체여부 " +
+                                     "FROM 도서, 대출 " +
+                                     "WHERE 도서.고유번호 = 대출.고유번호";
+
+                BookQuery = SearchQuery;
+
+                // 현재날짜
+                DateTime nowday = DateTime.Now;
+
+                /*
+                MySqlConnection connection = new MySqlConnection(connectionstring);
+                connection.Open();
+
+                
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable datatable = new DataTable();
+                adapter.Fill(datatable);
+                */
+
+
+
+                //DataRow[] datarow = datatable.Select();
+
+                string update_O = "UPDATE 대출 SET 연체여부 = 'o' WHERE 아이디 IN(";
+                string update_X = "UPDATE 대출 SET 연체여부 = 'x' WHERE 아이디 IN(";
+                /*foreach(DataRow row in datarow)
+                {
+                    userdate = Convert.ToDateTime(row["예정반납일"]);
+                    if (userdate >= nowday)
+                    {
+                        update_X += Convert.ToString(row["아이디"]) + ",";
+                    }
+                    else if (userdate < nowday)
+                    {
+                        update_O += Convert.ToString(row["아이디"]) + ",";
+                    }
+                }*/
+                using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand(SearchQuery, connection);
+
+                    MySqlDataReader rdrtable = command.ExecuteReader();
+                    rdrtable.Read();
+
+
+                    if (Convert.ToDateTime(rdrtable["예정반납일"]) >= nowday)
+                    {
+                        update_X += "'" + Convert.ToString(rdrtable["아이디"]) + "'";
+                    }
+                    else if (Convert.ToDateTime(rdrtable["예정반납일"]) < nowday)
+                    {
+                        update_O += "'" + Convert.ToString(rdrtable["아이디"]) + "'";
+                    }
+
+                    while (rdrtable.Read())
+                        {
+                            if (Convert.ToDateTime(rdrtable["예정반납일"]) >= nowday)
+                            {
+                                update_X += ",'" + Convert.ToString(rdrtable["아이디"]) + "'";
+                            }
+                            else if (Convert.ToDateTime(rdrtable["예정반납일"]) < nowday)
+                            {
+                                update_O += ",'" + Convert.ToString(rdrtable["아이디"]) + "'";
+                            }
+                        }
+                update_O += ");";
+                update_X += ");";
+
+                command.CommandText = update_O;
+                connection.Close();
+                connection.Open();
+                MessageBox.Show("update_O : " + update_O);
+                if (1 >= command.ExecuteNonQuery())
+                    {
+                        MessageBox.Show("변경됨");
+                    }
+                    else
+                    {
+                        MessageBox.Show("변경 안 됨");
+                    }
+                    command.CommandText = update_X;
+                    if (1 >= command.ExecuteNonQuery())
+                    {
+                        MessageBox.Show("변경됨");
+                    }
+                    else
+                    {
+                        MessageBox.Show("변경 안 됨");
+                    }
+
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+
+                /*
+                string status_O = "O";
+                string status_X = "X";
+                string userid;
+
+                string update_O = "UPDATE 대출 SET 연체여부 = @status_O WHERE 아이디 = @userid";
+                string update_X = "UPDATE 대출 SET 연체여부 = @status_X WHERE 아이디 = @userid";
+
+                command.Parameters.AddWithValue("@status_O", status_O);
+                command.Parameters.AddWithValue("@status_X", status_X);
+                command.Parameters.AddWithValue("@userid", userid);
+                foreach (DataRow row in datarow)
+                {
+                    userdate = Convert.ToDateTime(row["예정반납일"]);
+                }
+                if (userdate >= nowday)
+                {
+                    command = new MySqlCommand(update_O, connection);
+                    adapter = new MySqlDataAdapter(command);
+                    adapter.Fill(datatable);
+                }
+                else if (userdate < nowday)
+                {
+                    command = new MySqlCommand(update_X, connection);
+                    adapter = new MySqlDataAdapter(command);
+                    adapter.Fill(datatable);
+                }
+                */
+
+
+
+                // 데이터그리드뷰 업데이트
+                LoadDataIntoDataGridView_BOOK();
+
+                LoadDataIntoDataGridView_USER();
+            
+        }
     }
 }

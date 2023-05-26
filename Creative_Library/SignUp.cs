@@ -20,7 +20,48 @@ namespace Creative_Library
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+            // 지우면 오류
+        }
+
+        private void ID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //  아이디 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
+                SIGNUP_BUTTON_Click(sender, e);
+            }
+        }
+
+        private void PW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //  비밀번호 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
+                SIGNUP_BUTTON_Click(sender, e);
+            }
+        }
+
+        private void NAME_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //  이름 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
+                SIGNUP_BUTTON_Click(sender, e);
+            }
+        }
+
+        private void PHONE_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //  전화번호 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
+                SIGNUP_BUTTON_Click(sender, e);
+            }
+        }
+
+        private void SIGNUP_BUTTON_Click(object sender, EventArgs e)
         {
             string id = ID.Text.Trim();
             string pw = PW.Text.Trim();
@@ -81,11 +122,6 @@ namespace Creative_Library
             {
                 connection.Close();
             }
-        }
-
-        private void SignUp_Load(object sender, EventArgs e)
-        {
-            // 지우면 오류
         }
     }
 }

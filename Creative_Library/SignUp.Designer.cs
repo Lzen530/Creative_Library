@@ -35,7 +35,6 @@ namespace Creative_Library
             this.PW_Valid = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@ namespace Creative_Library
             this.PW = new System.Windows.Forms.TextBox();
             this.NAME = new System.Windows.Forms.TextBox();
             this.PHONE = new System.Windows.Forms.TextBox();
+            this.SIGNUP_BUTTON = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -103,16 +103,6 @@ namespace Creative_Library
             this.label5.TabIndex = 10;
             this.label5.Text = "ex) 010-0000-0000\r\n";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(98, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 35);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "가입";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -147,6 +137,7 @@ namespace Creative_Library
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(114, 21);
             this.ID.TabIndex = 15;
+            this.ID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ID_KeyDown);
             // 
             // PW
             // 
@@ -155,6 +146,7 @@ namespace Creative_Library
             this.PW.PasswordChar = '*';
             this.PW.Size = new System.Drawing.Size(114, 21);
             this.PW.TabIndex = 16;
+            this.PW.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PW_KeyDown);
             // 
             // NAME
             // 
@@ -162,6 +154,7 @@ namespace Creative_Library
             this.NAME.Name = "NAME";
             this.NAME.Size = new System.Drawing.Size(114, 21);
             this.NAME.TabIndex = 17;
+            this.NAME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NAME_KeyDown);
             // 
             // PHONE
             // 
@@ -169,12 +162,24 @@ namespace Creative_Library
             this.PHONE.Name = "PHONE";
             this.PHONE.Size = new System.Drawing.Size(114, 21);
             this.PHONE.TabIndex = 18;
+            this.PHONE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PHONE_KeyDown);
+            // 
+            // SIGNUP_BUTTON
+            // 
+            this.SIGNUP_BUTTON.Location = new System.Drawing.Point(98, 295);
+            this.SIGNUP_BUTTON.Name = "SIGNUP_BUTTON";
+            this.SIGNUP_BUTTON.Size = new System.Drawing.Size(161, 35);
+            this.SIGNUP_BUTTON.TabIndex = 19;
+            this.SIGNUP_BUTTON.Text = "가입";
+            this.SIGNUP_BUTTON.UseVisualStyleBackColor = true;
+            this.SIGNUP_BUTTON.Click += new System.EventHandler(this.SIGNUP_BUTTON_Click);
             // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 393);
+            this.Controls.Add(this.SIGNUP_BUTTON);
             this.Controls.Add(this.PHONE);
             this.Controls.Add(this.NAME);
             this.Controls.Add(this.PW);
@@ -182,7 +187,6 @@ namespace Creative_Library
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.PW_Valid);
@@ -205,7 +209,6 @@ namespace Creative_Library
         private System.Windows.Forms.Label PW_Valid;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -213,5 +216,6 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox PW;
         private System.Windows.Forms.TextBox NAME;
         private System.Windows.Forms.TextBox PHONE;
+        private System.Windows.Forms.Button SIGNUP_BUTTON;
     }
 }

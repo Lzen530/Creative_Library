@@ -131,7 +131,7 @@ namespace Creative_Library
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(316, 96);
+            this.label15.Location = new System.Drawing.Point(346, 96);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 103;
@@ -139,7 +139,7 @@ namespace Creative_Library
             // 
             // SEARCH_PHONENUMBER_AlBM
             // 
-            this.SEARCH_PHONENUMBER_AlBM.Location = new System.Drawing.Point(375, 93);
+            this.SEARCH_PHONENUMBER_AlBM.Location = new System.Drawing.Point(405, 93);
             this.SEARCH_PHONENUMBER_AlBM.Name = "SEARCH_PHONENUMBER_AlBM";
             this.SEARCH_PHONENUMBER_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_PHONENUMBER_AlBM.TabIndex = 102;
@@ -147,7 +147,7 @@ namespace Creative_Library
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(156, 96);
+            this.label14.Location = new System.Drawing.Point(186, 96);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 12);
             this.label14.TabIndex = 101;
@@ -155,7 +155,7 @@ namespace Creative_Library
             // 
             // SEARCH_USERID_AlBM
             // 
-            this.SEARCH_USERID_AlBM.Location = new System.Drawing.Point(203, 93);
+            this.SEARCH_USERID_AlBM.Location = new System.Drawing.Point(233, 93);
             this.SEARCH_USERID_AlBM.Name = "SEARCH_USERID_AlBM";
             this.SEARCH_USERID_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_USERID_AlBM.TabIndex = 100;
@@ -173,7 +173,7 @@ namespace Creative_Library
             // 
             this.SEARCH_USERNAME_AlBM.Location = new System.Drawing.Point(73, 93);
             this.SEARCH_USERNAME_AlBM.Name = "SEARCH_USERNAME_AlBM";
-            this.SEARCH_USERNAME_AlBM.Size = new System.Drawing.Size(73, 21);
+            this.SEARCH_USERNAME_AlBM.Size = new System.Drawing.Size(102, 21);
             this.SEARCH_USERNAME_AlBM.TabIndex = 98;
             // 
             // dataGridView1
@@ -199,7 +199,7 @@ namespace Creative_Library
             // 
             // USER_SEARCH_AlBM
             // 
-            this.USER_SEARCH_AlBM.Location = new System.Drawing.Point(481, 90);
+            this.USER_SEARCH_AlBM.Location = new System.Drawing.Point(511, 90);
             this.USER_SEARCH_AlBM.Name = "USER_SEARCH_AlBM";
             this.USER_SEARCH_AlBM.Size = new System.Drawing.Size(51, 26);
             this.USER_SEARCH_AlBM.TabIndex = 122;
@@ -225,6 +225,7 @@ namespace Creative_Library
             this.re.TabIndex = 124;
             this.re.Text = "연체 여부 새로고침";
             this.re.UseVisualStyleBackColor = true;
+            this.re.Click += new System.EventHandler(this.re_Click);
             // 
             // Alba_Book_Manage
             // 

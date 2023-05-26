@@ -171,6 +171,7 @@ namespace Creative_Library
                         command.Parameters.AddWithValue("@userid", userID);
 
                         command.ExecuteNonQuery();
+                        MessageBox.Show("선택한 회원의 비밀번호가 변경되었습니다.");
                     }
 
                     // 6. 데이터그리드뷰 업데이트
@@ -203,23 +204,51 @@ namespace Creative_Library
 
                     // 바꿀 정보
                     string alba = "alba";
+                    string user = "user";
+                    string role = rowIndex.Cells["역할"].Value.ToString();
 
                     // 3. 수정 버튼 이벤트 처리
                     // 가져온 값을 사용하여 데이터 수정 작업 수행 
 
+
+
                     // 4. 데이터 수정
                     // 예시: 데이터베이스에서 해당 열 값을 수정
-                    string query = "UPDATE 회원 SET 역할 = @alba WHERE 아이디 = @userid";
-
-                    using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                    if (role == "alba")
                     {
-                        connection.Open();
+                        string query = "UPDATE 회원 SET 역할 = @user WHERE 아이디 = @userid";
 
-                        MySqlCommand command = new MySqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@alba", alba);
-                        command.Parameters.AddWithValue("@userid", userID);
+                        using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                        {
+                            connection.Open();
 
-                        command.ExecuteNonQuery();
+                            MySqlCommand command = new MySqlCommand(query, connection);
+                            command.Parameters.AddWithValue("@user", user);
+                            command.Parameters.AddWithValue("@userid", userID);
+
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("권한이 회원으로 변경되었습니다.");
+                        }
+                    }
+                    else if (role == "user")
+                    {
+                        string query = "UPDATE 회원 SET 역할 = @alba WHERE 아이디 = @userid";
+
+                        using (MySqlConnection connection = new MySqlConnection(connectionstring))
+                        {
+                            connection.Open();
+
+                            MySqlCommand command = new MySqlCommand(query, connection);
+                            command.Parameters.AddWithValue("@alba", alba);
+                            command.Parameters.AddWithValue("@userid", userID);
+
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("권한이 알바로 변경되었습니다.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("관리자의 권한은 수정할 수 없습니다.");
                     }
 
                     // 6. 데이터그리드뷰 업데이트

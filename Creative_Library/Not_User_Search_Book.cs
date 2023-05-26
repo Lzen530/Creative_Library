@@ -43,7 +43,54 @@ namespace Creative_Library
             LoadDataIntoDataGridView();
         }
 
-        private void SEARCH_Click(object sender, EventArgs e) // 도서 검색 버튼
+        private Main_Display MD;
+        private void LOGIN_Click(object sender, EventArgs e) // 로그인 화면 이동 버튼
+        {
+            if (MD == null || MD.IsDisposed) // 인스턴스가 존재하지 않거나 폼이 닫혀있는 경우
+            {
+                MD = new Main_Display(); // 새로운 Main_Display 폼 인스턴스 생성
+            }
+
+            MD.Show();
+        }
+
+        private void SEARCH_BOOKNAME_GUEST_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 도서명 검색란에서 Enter 키가 눌렸을 때 검색 동작 수행
+                SEARCH_GUEST_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_AUTHOR_GUEST_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 저자 검색란에서 Enter 키가 눌렸을 때 검색 동작 수행
+                SEARCH_GUEST_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_PUBLISHER_GUEST_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 출판사 검색란에서 Enter 키가 눌렸을 때 검색 동작 수행
+                SEARCH_GUEST_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_BOOKNUMBER_GUEST_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 고유번호 검색란에서 Enter 키가 눌렸을 때 검색 동작 수행
+                SEARCH_GUEST_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_GUEST_Click(object sender, EventArgs e) // 도서 검색 버튼
         {
             try
             {
@@ -83,17 +130,6 @@ namespace Creative_Library
             {
                 MessageBox.Show("검색중 오류가 발생했습니다." + ex.Message);
             }
-        }
-
-        private Main_Display MD;
-        private void LOGIN_Click(object sender, EventArgs e) // 로그인 화면 이동 버튼
-        {
-            if (MD == null || MD.IsDisposed) // 인스턴스가 존재하지 않거나 폼이 닫혀있는 경우
-            {
-                MD = new Main_Display(); // 새로운 Main_Display 폼 인스턴스 생성
-            }
-
-            MD.Show();
         }
     }
 }

@@ -38,8 +38,8 @@ namespace Creative_Library
             this.SEARCH_PUBLISHER_GUEST = new System.Windows.Forms.TextBox();
             this.SEARCH_AUTHOR_GUEST = new System.Windows.Forms.TextBox();
             this.SEARCH_BOOKNAME_GUEST = new System.Windows.Forms.TextBox();
-            this.SEARCH_GUEST = new System.Windows.Forms.Button();
             this.LOGIN = new System.Windows.Forms.Button();
+            this.SEARCH_GUEST = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +96,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNUMBER_GUEST.Name = "SEARCH_BOOKNUMBER_GUEST";
             this.SEARCH_BOOKNUMBER_GUEST.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNUMBER_GUEST.TabIndex = 23;
+            this.SEARCH_BOOKNUMBER_GUEST.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNUMBER_GUEST_KeyDown);
             // 
             // SEARCH_PUBLISHER_GUEST
             // 
@@ -103,6 +104,7 @@ namespace Creative_Library
             this.SEARCH_PUBLISHER_GUEST.Name = "SEARCH_PUBLISHER_GUEST";
             this.SEARCH_PUBLISHER_GUEST.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_PUBLISHER_GUEST.TabIndex = 22;
+            this.SEARCH_PUBLISHER_GUEST.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_PUBLISHER_GUEST_KeyDown);
             // 
             // SEARCH_AUTHOR_GUEST
             // 
@@ -110,6 +112,7 @@ namespace Creative_Library
             this.SEARCH_AUTHOR_GUEST.Name = "SEARCH_AUTHOR_GUEST";
             this.SEARCH_AUTHOR_GUEST.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_AUTHOR_GUEST.TabIndex = 21;
+            this.SEARCH_AUTHOR_GUEST.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_AUTHOR_GUEST_KeyDown);
             // 
             // SEARCH_BOOKNAME_GUEST
             // 
@@ -117,16 +120,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNAME_GUEST.Name = "SEARCH_BOOKNAME_GUEST";
             this.SEARCH_BOOKNAME_GUEST.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNAME_GUEST.TabIndex = 20;
-            // 
-            // SEARCH_GUEST
-            // 
-            this.SEARCH_GUEST.Location = new System.Drawing.Point(695, 18);
-            this.SEARCH_GUEST.Name = "SEARCH_GUEST";
-            this.SEARCH_GUEST.Size = new System.Drawing.Size(93, 21);
-            this.SEARCH_GUEST.TabIndex = 19;
-            this.SEARCH_GUEST.Text = "검색";
-            this.SEARCH_GUEST.UseVisualStyleBackColor = true;
-            this.SEARCH_GUEST.Click += new System.EventHandler(this.SEARCH_Click);
+            this.SEARCH_BOOKNAME_GUEST.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNAME_GUEST_KeyDown);
             // 
             // LOGIN
             // 
@@ -138,11 +132,22 @@ namespace Creative_Library
             this.LOGIN.UseVisualStyleBackColor = true;
             this.LOGIN.Click += new System.EventHandler(this.LOGIN_Click);
             // 
+            // SEARCH_GUEST
+            // 
+            this.SEARCH_GUEST.Location = new System.Drawing.Point(695, 19);
+            this.SEARCH_GUEST.Name = "SEARCH_GUEST";
+            this.SEARCH_GUEST.Size = new System.Drawing.Size(93, 21);
+            this.SEARCH_GUEST.TabIndex = 30;
+            this.SEARCH_GUEST.Text = "검색";
+            this.SEARCH_GUEST.UseVisualStyleBackColor = true;
+            this.SEARCH_GUEST.Click += new System.EventHandler(this.SEARCH_GUEST_Click);
+            // 
             // Not_User_Search_Book
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 485);
+            this.Controls.Add(this.SEARCH_GUEST);
             this.Controls.Add(this.LOGIN);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -152,7 +157,6 @@ namespace Creative_Library
             this.Controls.Add(this.SEARCH_PUBLISHER_GUEST);
             this.Controls.Add(this.SEARCH_AUTHOR_GUEST);
             this.Controls.Add(this.SEARCH_BOOKNAME_GUEST);
-            this.Controls.Add(this.SEARCH_GUEST);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Not_User_Search_Book";
             this.Text = "Not_User_Search_Book";
@@ -174,7 +178,7 @@ namespace Creative_Library
         private System.Windows.Forms.TextBox SEARCH_PUBLISHER_GUEST;
         private System.Windows.Forms.TextBox SEARCH_AUTHOR_GUEST;
         private System.Windows.Forms.TextBox SEARCH_BOOKNAME_GUEST;
-        private System.Windows.Forms.Button SEARCH_GUEST;
         private System.Windows.Forms.Button LOGIN;
+        private System.Windows.Forms.Button SEARCH_GUEST;
     }
 }
