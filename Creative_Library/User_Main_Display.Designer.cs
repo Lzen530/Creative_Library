@@ -29,7 +29,6 @@ namespace Creative_Library
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,24 +44,12 @@ namespace Creative_Library
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.LOANBOOK_UMD = new System.Windows.Forms.Label();
+            this.BOOKNAME_UMD = new System.Windows.Forms.Label();
             this.LOANDATE_UMD = new System.Windows.Forms.Label();
             this.RETURNDATE_UMD = new System.Windows.Forms.Label();
             this.USERNAME_UMD = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(749, 355);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 64);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "연체";
-            this.label1.Visible = false;
             // 
             // dataGridView1
             // 
@@ -163,7 +150,7 @@ namespace Creative_Library
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(701, 146);
+            this.label6.Location = new System.Drawing.Point(686, 146);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 38;
@@ -172,7 +159,7 @@ namespace Creative_Library
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(649, 171);
+            this.label7.Location = new System.Drawing.Point(634, 171);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 12);
             this.label7.TabIndex = 39;
@@ -181,7 +168,7 @@ namespace Creative_Library
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(677, 196);
+            this.label8.Location = new System.Drawing.Point(662, 196);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 40;
@@ -190,19 +177,19 @@ namespace Creative_Library
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(677, 222);
+            this.label9.Location = new System.Drawing.Point(662, 222);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 41;
             this.label9.Text = "반납일자 : ";
             // 
-            // LOANBOOK_UMD
+            // BOOKNAME_UMD
             // 
-            this.LOANBOOK_UMD.AutoSize = true;
-            this.LOANBOOK_UMD.Location = new System.Drawing.Point(748, 171);
-            this.LOANBOOK_UMD.Name = "LOANBOOK_UMD";
-            this.LOANBOOK_UMD.Size = new System.Drawing.Size(0, 12);
-            this.LOANBOOK_UMD.TabIndex = 43;
+            this.BOOKNAME_UMD.AutoSize = true;
+            this.BOOKNAME_UMD.Location = new System.Drawing.Point(748, 171);
+            this.BOOKNAME_UMD.Name = "BOOKNAME_UMD";
+            this.BOOKNAME_UMD.Size = new System.Drawing.Size(0, 12);
+            this.BOOKNAME_UMD.TabIndex = 43;
             // 
             // LOANDATE_UMD
             // 
@@ -236,7 +223,7 @@ namespace Creative_Library
             this.Controls.Add(this.USERNAME_UMD);
             this.Controls.Add(this.RETURNDATE_UMD);
             this.Controls.Add(this.LOANDATE_UMD);
-            this.Controls.Add(this.LOANBOOK_UMD);
+            this.Controls.Add(this.BOOKNAME_UMD);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -252,7 +239,6 @@ namespace Creative_Library
             this.Controls.Add(this.SEARCH_BOOKNAME_UMD);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
             this.Name = "User_Main_Display";
             this.Text = "User_Main_Display";
             this.Load += new System.EventHandler(this.User_Main_Display_Load);
@@ -263,7 +249,6 @@ namespace Creative_Library
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
@@ -279,7 +264,7 @@ namespace Creative_Library
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label LOANBOOK_UMD;
+        private System.Windows.Forms.Label BOOKNAME_UMD;
         private System.Windows.Forms.Label LOANDATE_UMD;
         private System.Windows.Forms.Label RETURNDATE_UMD;
         private System.Windows.Forms.Label USERNAME_UMD;

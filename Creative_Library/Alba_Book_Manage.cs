@@ -140,7 +140,7 @@ namespace Creative_Library
 
                 if (!string.IsNullOrEmpty(booknumber))
                 {
-                    SearchQuery += $" AND 도서.고유번호 = '{booknumber}'";
+                    SearchQuery += $" AND 도서.고유번호 LIKE '%{booknumber}%'";
                 }
 
                 BookQuery = SearchQuery;

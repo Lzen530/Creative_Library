@@ -47,6 +47,7 @@ namespace Creative_Library
             this.LOAN_LOAN_RETURN = new System.Windows.Forms.Button();
             this.RETURN_LOAN_RETURN = new System.Windows.Forms.Button();
             this.SEARCH_LOAN_RETURN = new System.Windows.Forms.Button();
+            this.LOANMORE_LOAN_RETURN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,13 +134,13 @@ namespace Creative_Library
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(947, 404);
+            this.dataGridView1.Size = new System.Drawing.Size(1043, 404);
             this.dataGridView1.TabIndex = 52;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1005, 281);
+            this.label15.Location = new System.Drawing.Point(1114, 281);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 99;
@@ -147,7 +148,7 @@ namespace Creative_Library
             // 
             // LOANDATE_BLR
             // 
-            this.LOANDATE_BLR.Location = new System.Drawing.Point(1067, 278);
+            this.LOANDATE_BLR.Location = new System.Drawing.Point(1176, 278);
             this.LOANDATE_BLR.Name = "LOANDATE_BLR";
             this.LOANDATE_BLR.Size = new System.Drawing.Size(100, 21);
             this.LOANDATE_BLR.TabIndex = 98;
@@ -155,7 +156,7 @@ namespace Creative_Library
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1005, 245);
+            this.label14.Location = new System.Drawing.Point(1114, 245);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 12);
             this.label14.TabIndex = 97;
@@ -163,14 +164,14 @@ namespace Creative_Library
             // 
             // USERID_BLR
             // 
-            this.USERID_BLR.Location = new System.Drawing.Point(1067, 242);
+            this.USERID_BLR.Location = new System.Drawing.Point(1176, 242);
             this.USERID_BLR.Name = "USERID_BLR";
             this.USERID_BLR.Size = new System.Drawing.Size(100, 21);
             this.USERID_BLR.TabIndex = 96;
             // 
             // LOGOUT_LOAN_RETURN
             // 
-            this.LOGOUT_LOAN_RETURN.Location = new System.Drawing.Point(1137, 12);
+            this.LOGOUT_LOAN_RETURN.Location = new System.Drawing.Point(1246, 12);
             this.LOGOUT_LOAN_RETURN.Name = "LOGOUT_LOAN_RETURN";
             this.LOGOUT_LOAN_RETURN.Size = new System.Drawing.Size(75, 23);
             this.LOGOUT_LOAN_RETURN.TabIndex = 102;
@@ -180,7 +181,7 @@ namespace Creative_Library
             // 
             // LOAN_LOAN_RETURN
             // 
-            this.LOAN_LOAN_RETURN.Location = new System.Drawing.Point(1017, 320);
+            this.LOAN_LOAN_RETURN.Location = new System.Drawing.Point(1126, 320);
             this.LOAN_LOAN_RETURN.Name = "LOAN_LOAN_RETURN";
             this.LOAN_LOAN_RETURN.Size = new System.Drawing.Size(134, 38);
             this.LOAN_LOAN_RETURN.TabIndex = 103;
@@ -190,7 +191,7 @@ namespace Creative_Library
             // 
             // RETURN_LOAN_RETURN
             // 
-            this.RETURN_LOAN_RETURN.Location = new System.Drawing.Point(1017, 364);
+            this.RETURN_LOAN_RETURN.Location = new System.Drawing.Point(1126, 364);
             this.RETURN_LOAN_RETURN.Name = "RETURN_LOAN_RETURN";
             this.RETURN_LOAN_RETURN.Size = new System.Drawing.Size(134, 38);
             this.RETURN_LOAN_RETURN.TabIndex = 104;
@@ -208,11 +209,22 @@ namespace Creative_Library
             this.SEARCH_LOAN_RETURN.UseVisualStyleBackColor = true;
             this.SEARCH_LOAN_RETURN.Click += new System.EventHandler(this.SEARCH_LOAN_RETURN_Click);
             // 
+            // LOANMORE_LOAN_RETURN
+            // 
+            this.LOANMORE_LOAN_RETURN.Location = new System.Drawing.Point(1126, 429);
+            this.LOANMORE_LOAN_RETURN.Name = "LOANMORE_LOAN_RETURN";
+            this.LOANMORE_LOAN_RETURN.Size = new System.Drawing.Size(134, 38);
+            this.LOANMORE_LOAN_RETURN.TabIndex = 106;
+            this.LOANMORE_LOAN_RETURN.Text = "대출 연장";
+            this.LOANMORE_LOAN_RETURN.UseVisualStyleBackColor = true;
+            this.LOANMORE_LOAN_RETURN.Click += new System.EventHandler(this.LOANMORE_LOAN_RETURN_Click);
+            // 
             // Book_Loan_Return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 551);
+            this.ClientSize = new System.Drawing.Size(1333, 551);
+            this.Controls.Add(this.LOANMORE_LOAN_RETURN);
             this.Controls.Add(this.SEARCH_LOAN_RETURN);
             this.Controls.Add(this.RETURN_LOAN_RETURN);
             this.Controls.Add(this.LOAN_LOAN_RETURN);
@@ -259,5 +271,6 @@ namespace Creative_Library
         private System.Windows.Forms.Button LOAN_LOAN_RETURN;
         private System.Windows.Forms.Button RETURN_LOAN_RETURN;
         private System.Windows.Forms.Button SEARCH_LOAN_RETURN;
+        private System.Windows.Forms.Button LOANMORE_LOAN_RETURN;
     }
 }

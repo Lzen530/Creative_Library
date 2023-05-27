@@ -103,7 +103,7 @@ namespace Creative_Library
                     {
                         MessageBox.Show("일반 회원으로 로그인되었습니다.");
                         // 일반 사용자인 경우, 사용자 화면으로 이동
-                        User_Main_Display UMD = new User_Main_Display();
+                        User_Main_Display UMD = new User_Main_Display(ID.Text);
                         UMD.Show();
                         this.Hide();
                     }

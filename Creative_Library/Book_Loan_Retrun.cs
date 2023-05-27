@@ -18,7 +18,7 @@ namespace Creative_Library
             InitializeComponent();
         }
 
-        string SqlQuery = "SELECT 도서.고유번호, 도서.도서이름, 도서.저자, 도서.출판사, 대출.대출번호, 회원.이름, 회원.아이디, 대출.대출일, 대출.예정반납일 " +
+        string SqlQuery = "SELECT 도서.고유번호, 도서.도서이름, 도서.저자, 도서.출판사, 대출.대출번호, 회원.이름, 회원.아이디, 대출.대출일, 대출.예정반납일, 대출.연체여부 " +
                           "FROM 대출 " +
                           "INNER JOIN 회원 ON 대출.아이디 = 회원.아이디 " +
                           "RIGHT OUTER JOIN 도서 ON 대출.고유번호 = 도서.고유번호";
@@ -209,7 +209,7 @@ namespace Creative_Library
 
                 if (!string.IsNullOrEmpty(booknumber))
                 {
-                    SearchQuery += $" AND 도서.고유번호 = '{booknumber}'";
+                    SearchQuery += $" AND 도서.고유번호 LIKE '%{booknumber}%'";
                 }
 
                 SqlQuery = SearchQuery;
@@ -220,6 +220,81 @@ namespace Creative_Library
             catch (Exception ex)
             {
                 MessageBox.Show("검색중 오류가 발생했습니다." + ex.Message);
+            }
+        }
+
+        private void LOANMORE_LOAN_RETURN_Click(object sender, EventArgs e) // 대출 연장
+        {
+            // 1. 대출을 연장시킬 회원의 행 클릭 후 버튼 누른다.
+            // 2. 회원의 대출일자와 예정반납일자, 연체여부를 불러온다.
+            // 3. 연체여부에서 연체가 되지 않았음을 확인한다.
+            // 3-1. 연체가 됐을 경우 "대출을 연장할 수 없습니다." 라는 메시지 박스를 출력한다.
+            // 3-2. 연체가 되지 않았을 경우 4로 넘어간다.
+            // 4-1. 대출일자와 예정반납일자가 14일이 차이날 경우에 예정반납일자를 7일 추가하며
+            //      "성공적으로 연장되었습니다." 라는 메시지 박스를 출력한다.
+            // 4-2. 대출일자와 예정반납일자가 21일이 차이날 경우에(이미 한번 대출 연장을 한 경우)
+            //      "이미 1회 연장한 회원입니다." 라는 메시지 박스를 출력한다.
+
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    // 1. 선택한 행의 인덱스 가져오기
+                    DataGridViewRow rowIndex = dataGridView1.SelectedRows[0];
+
+                    MySqlConnection connection = new MySqlConnection(connectionstring);
+                    connection.Open();
+
+                    // 2. 데이터 가져오기
+                    // 바뀌어야할 정보1
+                    string userid = rowIndex.Cells["아이디"].Value.ToString();
+
+                    // 바꿔야할 정보
+                    string returndate = rowIndex.Cells["예정반납일"].Value.ToString();
+
+                    // 필요한 정보
+                    string loandate = rowIndex.Cells["대출일"].Value.ToString();
+                    string delinquency = rowIndex.Cells["연체여부"].Value.ToString();
+
+                    if (delinquency == "O")
+                    {
+                        MessageBox.Show("이미 연체된 회원으로, 대출을 연장할 수 없습니다.");
+                    }
+                    else if (delinquency == "X")
+                    {
+                        DateTime loanDate; DateTime.TryParse(loandate, out loanDate);
+                        DateTime returnDate; DateTime.TryParse(returndate, out returnDate);
+
+                        DateTime loandate14 = loanDate.AddDays(14);
+                        if (returnDate != loandate14) // 1회 연장한 경우 (예정반납일자 != 대출일자 + 14)
+                        {
+                            MessageBox.Show("이미 1회 연장한 회원으로, 대출을 연장할 수 없습니다.");
+                        }
+                        else // 한 번도 연장하지 않은 경우 (예정반납일자 == 대출일자 + 14)
+                        {
+                            DateTime ReturnDate = returnDate.AddDays(7);
+                            string returndate_ = ReturnDate.ToString("yyyy-MM-dd");
+
+                            string returndatequery = "UPDATE 대출 SET 예정반납일 = @returndate WHERE 아이디 = @userid";
+                            MySqlCommand command = new MySqlCommand(returndatequery, connection);
+                            command.Parameters.AddWithValue("@returndate", returndate_);
+                            command.Parameters.AddWithValue("@userid", userid);
+                            command.ExecuteNonQuery();
+
+                            MessageBox.Show("성공적으로 연장되었습니다.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("대출되지 않은 도서입니다.");
+                    }
+
+                    LoadDataIntoDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류가 발생했습니다." + ex.Message);
             }
         }
     }
