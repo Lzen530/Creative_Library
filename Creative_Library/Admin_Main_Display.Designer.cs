@@ -30,10 +30,10 @@ namespace Creative_Library
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.BOOKNAME_SEARCH_AMD = new System.Windows.Forms.TextBox();
+            this.AUTHOR_SEARCH_AMD = new System.Windows.Forms.TextBox();
+            this.PUBLISHER_SEARCH_AMD = new System.Windows.Forms.TextBox();
+            this.BOOKNUMBER_SEARCH_AMD = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +51,6 @@ namespace Creative_Library
             this.DELETE_AMD = new System.Windows.Forms.Button();
             this.SEARCH_AMD = new System.Windows.Forms.Button();
             this.UMD_AMD = new System.Windows.Forms.Button();
-            this.BOOK_INSERT_UPDATE_DELETE_AMD = new System.Windows.Forms.Button();
             this.LOGOUT_AMD = new System.Windows.Forms.Button();
             this.AMD_AMD = new System.Windows.Forms.Button();
             this.LOAN_RETURN_AMD = new System.Windows.Forms.Button();
@@ -71,34 +70,37 @@ namespace Creative_Library
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
-            // textBox1
+            // BOOKNAME_SEARCH_AMD
             // 
-            this.textBox1.Location = new System.Drawing.Point(83, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 11;
+            this.BOOKNAME_SEARCH_AMD.Location = new System.Drawing.Point(83, 80);
+            this.BOOKNAME_SEARCH_AMD.Name = "BOOKNAME_SEARCH_AMD";
+            this.BOOKNAME_SEARCH_AMD.Size = new System.Drawing.Size(100, 21);
+            this.BOOKNAME_SEARCH_AMD.TabIndex = 11;
+            this.BOOKNAME_SEARCH_AMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BOOKNAME_SEARCH_AMD_KeyDown);
             // 
-            // textBox2
+            // AUTHOR_SEARCH_AMD
             // 
-            this.textBox2.Location = new System.Drawing.Point(243, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 12;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.AUTHOR_SEARCH_AMD.Location = new System.Drawing.Point(243, 81);
+            this.AUTHOR_SEARCH_AMD.Name = "AUTHOR_SEARCH_AMD";
+            this.AUTHOR_SEARCH_AMD.Size = new System.Drawing.Size(100, 21);
+            this.AUTHOR_SEARCH_AMD.TabIndex = 12;
+            this.AUTHOR_SEARCH_AMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AUTHOR_SEARCH_AMD_KeyDown);
             // 
-            // textBox3
+            // PUBLISHER_SEARCH_AMD
             // 
-            this.textBox3.Location = new System.Drawing.Point(411, 81);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 13;
+            this.PUBLISHER_SEARCH_AMD.Location = new System.Drawing.Point(411, 81);
+            this.PUBLISHER_SEARCH_AMD.Name = "PUBLISHER_SEARCH_AMD";
+            this.PUBLISHER_SEARCH_AMD.Size = new System.Drawing.Size(100, 21);
+            this.PUBLISHER_SEARCH_AMD.TabIndex = 13;
+            this.PUBLISHER_SEARCH_AMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PUBLISHER_SEARCH_AMD_KeyDown);
             // 
-            // textBox4
+            // BOOKNUMBER_SEARCH_AMD
             // 
-            this.textBox4.Location = new System.Drawing.Point(595, 81);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 14;
+            this.BOOKNUMBER_SEARCH_AMD.Location = new System.Drawing.Point(595, 81);
+            this.BOOKNUMBER_SEARCH_AMD.Name = "BOOKNUMBER_SEARCH_AMD";
+            this.BOOKNUMBER_SEARCH_AMD.Size = new System.Drawing.Size(100, 21);
+            this.BOOKNUMBER_SEARCH_AMD.TabIndex = 14;
+            this.BOOKNUMBER_SEARCH_AMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BOOKNUMBER_SEARCH_AMD_KeyDown);
             // 
             // label1
             // 
@@ -147,7 +149,6 @@ namespace Creative_Library
             // 
             // BOOKNAME_AMD
             // 
-            this.BOOKNAME_AMD.Enabled = false;
             this.BOOKNAME_AMD.Location = new System.Drawing.Point(717, 251);
             this.BOOKNAME_AMD.Name = "BOOKNAME_AMD";
             this.BOOKNAME_AMD.Size = new System.Drawing.Size(100, 21);
@@ -164,7 +165,6 @@ namespace Creative_Library
             // 
             // AUTHOR_AMD
             // 
-            this.AUTHOR_AMD.Enabled = false;
             this.AUTHOR_AMD.Location = new System.Drawing.Point(717, 287);
             this.AUTHOR_AMD.Name = "AUTHOR_AMD";
             this.AUTHOR_AMD.Size = new System.Drawing.Size(100, 21);
@@ -181,7 +181,6 @@ namespace Creative_Library
             // 
             // PUBLISHER_AMD
             // 
-            this.PUBLISHER_AMD.Enabled = false;
             this.PUBLISHER_AMD.Location = new System.Drawing.Point(717, 323);
             this.PUBLISHER_AMD.Name = "PUBLISHER_AMD";
             this.PUBLISHER_AMD.Size = new System.Drawing.Size(100, 21);
@@ -198,7 +197,6 @@ namespace Creative_Library
             // 
             // BOOKNUMBER_AMD
             // 
-            this.BOOKNUMBER_AMD.Enabled = false;
             this.BOOKNUMBER_AMD.Location = new System.Drawing.Point(717, 215);
             this.BOOKNUMBER_AMD.Name = "BOOKNUMBER_AMD";
             this.BOOKNUMBER_AMD.Size = new System.Drawing.Size(100, 21);
@@ -257,16 +255,6 @@ namespace Creative_Library
             this.UMD_AMD.UseVisualStyleBackColor = true;
             this.UMD_AMD.Click += new System.EventHandler(this.UMD_AMD_Click);
             // 
-            // BOOK_INSERT_UPDATE_DELETE_AMD
-            // 
-            this.BOOK_INSERT_UPDATE_DELETE_AMD.Location = new System.Drawing.Point(22, 41);
-            this.BOOK_INSERT_UPDATE_DELETE_AMD.Name = "BOOK_INSERT_UPDATE_DELETE_AMD";
-            this.BOOK_INSERT_UPDATE_DELETE_AMD.Size = new System.Drawing.Size(168, 32);
-            this.BOOK_INSERT_UPDATE_DELETE_AMD.TabIndex = 58;
-            this.BOOK_INSERT_UPDATE_DELETE_AMD.Text = "도서 추가/수정/삭제";
-            this.BOOK_INSERT_UPDATE_DELETE_AMD.UseVisualStyleBackColor = true;
-            this.BOOK_INSERT_UPDATE_DELETE_AMD.Click += new System.EventHandler(this.BOOK_INSERT_UPDATE_DELETE_AMD_Click);
-            // 
             // LOGOUT_AMD
             // 
             this.LOGOUT_AMD.Location = new System.Drawing.Point(780, 5);
@@ -305,7 +293,6 @@ namespace Creative_Library
             this.Controls.Add(this.LOAN_RETURN_AMD);
             this.Controls.Add(this.AMD_AMD);
             this.Controls.Add(this.LOGOUT_AMD);
-            this.Controls.Add(this.BOOK_INSERT_UPDATE_DELETE_AMD);
             this.Controls.Add(this.UMD_AMD);
             this.Controls.Add(this.SEARCH_AMD);
             this.Controls.Add(this.DELETE_AMD);
@@ -323,10 +310,10 @@ namespace Creative_Library
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BOOKNUMBER_SEARCH_AMD);
+            this.Controls.Add(this.PUBLISHER_SEARCH_AMD);
+            this.Controls.Add(this.AUTHOR_SEARCH_AMD);
+            this.Controls.Add(this.BOOKNAME_SEARCH_AMD);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Admin_Main_Display";
             this.Text = "Admin_Main_Display";
@@ -339,10 +326,10 @@ namespace Creative_Library
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox BOOKNAME_SEARCH_AMD;
+        private System.Windows.Forms.TextBox AUTHOR_SEARCH_AMD;
+        private System.Windows.Forms.TextBox PUBLISHER_SEARCH_AMD;
+        private System.Windows.Forms.TextBox BOOKNUMBER_SEARCH_AMD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -360,7 +347,6 @@ namespace Creative_Library
         private System.Windows.Forms.Button DELETE_AMD;
         private System.Windows.Forms.Button SEARCH_AMD;
         private System.Windows.Forms.Button UMD_AMD;
-        private System.Windows.Forms.Button BOOK_INSERT_UPDATE_DELETE_AMD;
         private System.Windows.Forms.Button LOGOUT_AMD;
         private System.Windows.Forms.Button AMD_AMD;
         private System.Windows.Forms.Button LOAN_RETURN_AMD;

@@ -267,24 +267,14 @@ namespace Creative_Library
             }
         }
 
-        private void LOAN_AMD_Click(object sender, EventArgs e) // 대출
-        {
-
-        }
-
-        private void RETURN_AMD_Click(object sender, EventArgs e) // 반납
-        {
-
-        }
-
         private void SEARCH_AMD_Click(object sender, EventArgs e) // 도서 검색 버튼
         {
             try
             {
-                string bookname = textBox1.Text.Trim();
-                string author = textBox2.Text.Trim();
-                string publisher = textBox3.Text.Trim();
-                string booknumber = textBox4.Text.Trim();
+                string bookname = BOOKNAME_SEARCH_AMD.Text.Trim();
+                string author = AUTHOR_SEARCH_AMD.Text.Trim();
+                string publisher = PUBLISHER_SEARCH_AMD.Text.Trim();
+                string booknumber = BOOKNUMBER_SEARCH_AMD.Text.Trim();
 
                 string SearchQuery = "SELECT * FROM 도서 WHERE 1=1";
 
@@ -330,9 +320,36 @@ namespace Creative_Library
             BLR.Show();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void BOOKNAME_SEARCH_AMD_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_AMD_Click(sender, e);
+            }
+        }
 
+        private void AUTHOR_SEARCH_AMD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_AMD_Click(sender, e);
+            }
+        }
+
+        private void PUBLISHER_SEARCH_AMD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_AMD_Click(sender, e);
+            }
+        }
+
+        private void BOOKNUMBER_SEARCH_AMD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_AMD_Click(sender, e);
+            }
         }
     }
 }

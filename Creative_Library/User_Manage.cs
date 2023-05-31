@@ -265,5 +265,29 @@ namespace Creative_Library
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void USERNAME_UM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_Click(sender, e);
+            }
+        }
+
+        private void USERID_UM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_Click(sender, e);
+            }
+        }
+
+        private void USERPHONE_UM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_Click(sender, e);
+            }
+        }
     }
 }

@@ -72,6 +72,7 @@ namespace Creative_Library
             this.USERPHONE_UM.Name = "USERPHONE_UM";
             this.USERPHONE_UM.Size = new System.Drawing.Size(100, 21);
             this.USERPHONE_UM.TabIndex = 55;
+            this.USERPHONE_UM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.USERPHONE_UM_KeyDown);
             // 
             // label14
             // 
@@ -88,6 +89,7 @@ namespace Creative_Library
             this.USERID_UM.Name = "USERID_UM";
             this.USERID_UM.Size = new System.Drawing.Size(100, 21);
             this.USERID_UM.TabIndex = 53;
+            this.USERID_UM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.USERID_UM_KeyDown);
             // 
             // label13
             // 
@@ -104,6 +106,7 @@ namespace Creative_Library
             this.USERNAME_UM.Name = "USERNAME_UM";
             this.USERNAME_UM.Size = new System.Drawing.Size(73, 21);
             this.USERNAME_UM.TabIndex = 51;
+            this.USERNAME_UM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.USERNAME_UM_KeyDown);
             // 
             // PW_RESET
             // 

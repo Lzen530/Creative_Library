@@ -105,6 +105,7 @@ namespace Creative_Library
             this.SEARCH_PUBLISHER_AlBM.Name = "SEARCH_PUBLISHER_AlBM";
             this.SEARCH_PUBLISHER_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_PUBLISHER_AlBM.TabIndex = 113;
+            this.SEARCH_PUBLISHER_AlBM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_PUBLISHER_AlBM_KeyDown);
             // 
             // SEARCH_AUTHOR_AlBM
             // 
@@ -112,6 +113,7 @@ namespace Creative_Library
             this.SEARCH_AUTHOR_AlBM.Name = "SEARCH_AUTHOR_AlBM";
             this.SEARCH_AUTHOR_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_AUTHOR_AlBM.TabIndex = 112;
+            this.SEARCH_AUTHOR_AlBM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_AUTHOR_AlBM_KeyDown);
             // 
             // SEARCH_BOOKNUMBER_AlBM
             // 
@@ -119,6 +121,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNUMBER_AlBM.Name = "SEARCH_BOOKNUMBER_AlBM";
             this.SEARCH_BOOKNUMBER_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNUMBER_AlBM.TabIndex = 111;
+            this.SEARCH_BOOKNUMBER_AlBM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNUMBER_AlBM_KeyDown);
             // 
             // SEARCH_BOOKNAME_AlBM
             // 
@@ -126,6 +129,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNAME_AlBM.Name = "SEARCH_BOOKNAME_AlBM";
             this.SEARCH_BOOKNAME_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNAME_AlBM.TabIndex = 110;
+            this.SEARCH_BOOKNAME_AlBM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNAME_AlBM_KeyDown);
             // 
             // label15
             // 
@@ -142,6 +146,7 @@ namespace Creative_Library
             this.SEARCH_PHONENUMBER_AlBM.Name = "SEARCH_PHONENUMBER_AlBM";
             this.SEARCH_PHONENUMBER_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_PHONENUMBER_AlBM.TabIndex = 102;
+            this.SEARCH_PHONENUMBER_AlBM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_PHONENUMBER_AlBM_KeyDown);
             // 
             // label14
             // 
@@ -158,6 +163,7 @@ namespace Creative_Library
             this.SEARCH_USERID_AlBM.Name = "SEARCH_USERID_AlBM";
             this.SEARCH_USERID_AlBM.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_USERID_AlBM.TabIndex = 100;
+            this.SEARCH_USERID_AlBM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_USERID_AlBM_KeyDown);
             // 
             // label13
             // 
@@ -174,6 +180,7 @@ namespace Creative_Library
             this.SEARCH_USERNAME_AlBM.Name = "SEARCH_USERNAME_AlBM";
             this.SEARCH_USERNAME_AlBM.Size = new System.Drawing.Size(102, 21);
             this.SEARCH_USERNAME_AlBM.TabIndex = 98;
+            this.SEARCH_USERNAME_AlBM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_USERNAME_AlBM_KeyDown);
             // 
             // dataGridView1
             // 

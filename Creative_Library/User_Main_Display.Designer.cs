@@ -115,6 +115,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNUMBER_UMD.Name = "SEARCH_BOOKNUMBER_UMD";
             this.SEARCH_BOOKNUMBER_UMD.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNUMBER_UMD.TabIndex = 31;
+            this.SEARCH_BOOKNUMBER_UMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNUMBER_UMD_KeyDown);
             // 
             // SEARCH_PUBLISHER_UMD
             // 
@@ -122,6 +123,7 @@ namespace Creative_Library
             this.SEARCH_PUBLISHER_UMD.Name = "SEARCH_PUBLISHER_UMD";
             this.SEARCH_PUBLISHER_UMD.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_PUBLISHER_UMD.TabIndex = 30;
+            this.SEARCH_PUBLISHER_UMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_PUBLISHER_UMD_KeyDown);
             // 
             // SEARCH_AUTHOR_UMD
             // 
@@ -129,6 +131,7 @@ namespace Creative_Library
             this.SEARCH_AUTHOR_UMD.Name = "SEARCH_AUTHOR_UMD";
             this.SEARCH_AUTHOR_UMD.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_AUTHOR_UMD.TabIndex = 29;
+            this.SEARCH_AUTHOR_UMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_AUTHOR_UMD_KeyDown);
             // 
             // SEARCH_BOOKNAME_UMD
             // 
@@ -136,6 +139,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNAME_UMD.Name = "SEARCH_BOOKNAME_UMD";
             this.SEARCH_BOOKNAME_UMD.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNAME_UMD.TabIndex = 28;
+            this.SEARCH_BOOKNAME_UMD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNAME_UMD_KeyDown);
             // 
             // SEARCH_UMD
             // 
@@ -150,7 +154,7 @@ namespace Creative_Library
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(686, 146);
+            this.label6.Location = new System.Drawing.Point(701, 146);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 38;
@@ -159,7 +163,7 @@ namespace Creative_Library
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(634, 171);
+            this.label7.Location = new System.Drawing.Point(649, 171);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 12);
             this.label7.TabIndex = 39;
@@ -168,7 +172,7 @@ namespace Creative_Library
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(662, 196);
+            this.label8.Location = new System.Drawing.Point(677, 196);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 40;
@@ -177,7 +181,7 @@ namespace Creative_Library
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(662, 222);
+            this.label9.Location = new System.Drawing.Point(677, 222);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 41;

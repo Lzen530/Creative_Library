@@ -31,8 +31,6 @@ namespace Creative_Library
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ID_Available = new System.Windows.Forms.Label();
-            this.PW_Valid = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,28 +60,6 @@ namespace Creative_Library
             this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "PW";
-            // 
-            // ID_Available
-            // 
-            this.ID_Available.AutoSize = true;
-            this.ID_Available.ForeColor = System.Drawing.Color.Blue;
-            this.ID_Available.Location = new System.Drawing.Point(209, 123);
-            this.ID_Available.Name = "ID_Available";
-            this.ID_Available.Size = new System.Drawing.Size(97, 12);
-            this.ID_Available.TabIndex = 4;
-            this.ID_Available.Text = "중복 여부 확인용";
-            this.ID_Available.Visible = false;
-            // 
-            // PW_Valid
-            // 
-            this.PW_Valid.AutoSize = true;
-            this.PW_Valid.ForeColor = System.Drawing.Color.Blue;
-            this.PW_Valid.Location = new System.Drawing.Point(209, 164);
-            this.PW_Valid.Name = "PW_Valid";
-            this.PW_Valid.Size = new System.Drawing.Size(125, 12);
-            this.PW_Valid.TabIndex = 5;
-            this.PW_Valid.Text = "비번 조건 부합 확인용";
-            this.PW_Valid.Visible = false;
             // 
             // label3
             // 
@@ -189,8 +165,6 @@ namespace Creative_Library
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.PW_Valid);
-            this.Controls.Add(this.ID_Available);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SignUp";
@@ -205,8 +179,6 @@ namespace Creative_Library
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label ID_Available;
-        private System.Windows.Forms.Label PW_Valid;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

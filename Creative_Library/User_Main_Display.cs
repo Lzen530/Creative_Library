@@ -198,5 +198,37 @@ namespace Creative_Library
                 this.Hide();
             }
         }
+
+        private void SEARCH_BOOKNAME_UMD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_UMD_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_AUTHOR_UMD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_UMD_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_PUBLISHER_UMD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_UMD_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_BOOKNUMBER_UMD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_UMD_Click(sender, e);
+            }
+        }
     }
 }

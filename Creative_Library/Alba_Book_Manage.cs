@@ -198,5 +198,61 @@ namespace Creative_Library
             LoadDataIntoDataGridView_BOOK();
             LoadDataIntoDataGridView_USER();
         }
+
+        private void SEARCH_USERNAME_AlBM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                USER_SEARCH_AlBM_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_USERID_AlBM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                USER_SEARCH_AlBM_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_PHONENUMBER_AlBM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                USER_SEARCH_AlBM_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_BOOKNAME_AlBM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BOOK_SEARCH_AlBM_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_AUTHOR_AlBM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BOOK_SEARCH_AlBM_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_PUBLISHER_AlBM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BOOK_SEARCH_AlBM_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_BOOKNUMBER_AlBM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BOOK_SEARCH_AlBM_Click(sender, e);
+            }
+        }
     }
 }

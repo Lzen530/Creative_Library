@@ -297,5 +297,37 @@ namespace Creative_Library
                 MessageBox.Show("오류가 발생했습니다." + ex.Message);
             }
         }
+
+        private void SEARCH_BOOKNAME_BLR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_LOAN_RETURN_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_AUTHOR_BLR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_LOAN_RETURN_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_PUBLISHER_BLR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_LOAN_RETURN_Click(sender, e);
+            }
+        }
+
+        private void SEARCH_BOOKNUMBER_BLR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SEARCH_LOAN_RETURN_Click(sender, e);
+            }
+        }
     }
 }

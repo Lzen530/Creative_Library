@@ -103,6 +103,7 @@ namespace Creative_Library
             this.SEARCH_PUBLISHER_BLR.Name = "SEARCH_PUBLISHER_BLR";
             this.SEARCH_PUBLISHER_BLR.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_PUBLISHER_BLR.TabIndex = 58;
+            this.SEARCH_PUBLISHER_BLR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_PUBLISHER_BLR_KeyDown);
             // 
             // SEARCH_AUTHOR_BLR
             // 
@@ -110,6 +111,7 @@ namespace Creative_Library
             this.SEARCH_AUTHOR_BLR.Name = "SEARCH_AUTHOR_BLR";
             this.SEARCH_AUTHOR_BLR.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_AUTHOR_BLR.TabIndex = 57;
+            this.SEARCH_AUTHOR_BLR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_AUTHOR_BLR_KeyDown);
             // 
             // SEARCH_BOOKNUMBER_BLR
             // 
@@ -117,6 +119,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNUMBER_BLR.Name = "SEARCH_BOOKNUMBER_BLR";
             this.SEARCH_BOOKNUMBER_BLR.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNUMBER_BLR.TabIndex = 56;
+            this.SEARCH_BOOKNUMBER_BLR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNUMBER_BLR_KeyDown);
             // 
             // SEARCH_BOOKNAME_BLR
             // 
@@ -124,6 +127,7 @@ namespace Creative_Library
             this.SEARCH_BOOKNAME_BLR.Name = "SEARCH_BOOKNAME_BLR";
             this.SEARCH_BOOKNAME_BLR.Size = new System.Drawing.Size(100, 21);
             this.SEARCH_BOOKNAME_BLR.TabIndex = 55;
+            this.SEARCH_BOOKNAME_BLR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SEARCH_BOOKNAME_BLR_KeyDown);
             // 
             // dataGridView1
             // 

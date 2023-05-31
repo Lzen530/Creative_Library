@@ -29,7 +29,6 @@ namespace Creative_Library
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //  아이디 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
                 SIGNUP_BUTTON_Click(sender, e);
             }
         }
@@ -38,7 +37,6 @@ namespace Creative_Library
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //  비밀번호 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
                 SIGNUP_BUTTON_Click(sender, e);
             }
         }
@@ -47,7 +45,6 @@ namespace Creative_Library
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //  이름 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
                 SIGNUP_BUTTON_Click(sender, e);
             }
         }
@@ -56,7 +53,6 @@ namespace Creative_Library
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //  전화번호 입력란에서 Enter 키가 눌렸을 때 가입 동작 수행
                 SIGNUP_BUTTON_Click(sender, e);
             }
         }
