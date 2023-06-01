@@ -60,6 +60,7 @@ namespace Creative_Library
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(750, 234);
             this.dataGridView2.TabIndex = 120;
             // 
@@ -190,6 +191,7 @@ namespace Creative_Library
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(532, 194);
             this.dataGridView1.TabIndex = 94;
             // 
@@ -199,7 +201,7 @@ namespace Creative_Library
             this.LOAN_RETURN_AlBM.Name = "LOAN_RETURN_AlBM";
             this.LOAN_RETURN_AlBM.Size = new System.Drawing.Size(74, 24);
             this.LOAN_RETURN_AlBM.TabIndex = 121;
-            this.LOAN_RETURN_AlBM.Text = "도서 관리";
+            this.LOAN_RETURN_AlBM.Text = "대출 반납";
             this.LOAN_RETURN_AlBM.UseVisualStyleBackColor = true;
             this.LOAN_RETURN_AlBM.Click += new System.EventHandler(this.LOAN_RETURN_AlBM_Click);
             // 

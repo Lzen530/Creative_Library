@@ -51,6 +51,7 @@ namespace Creative_Library
                 MD = new Main_Display(); // 새로운 Main_Display 폼 인스턴스 생성
             }
 
+            MD.Location = new Point(0, 0);
             MD.Show();
         }
 

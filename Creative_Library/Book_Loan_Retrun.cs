@@ -123,7 +123,7 @@ namespace Creative_Library
                     command.Parameters.AddWithValue("@Booknumber", dataGridView1.SelectedRows[0].Cells["고유번호"].Value.ToString());
                     command.Parameters.AddWithValue("@Loandate", LoanDate);
                     command.Parameters.AddWithValue("@Returndate", returnDate);
-                    command.Parameters.AddWithValue("@delinquency", "x");
+                    command.Parameters.AddWithValue("@delinquency", "X");
 
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -187,7 +187,7 @@ namespace Creative_Library
                 string publisher = SEARCH_PUBLISHER_BLR.Text.Trim();
                 string booknumber = SEARCH_BOOKNUMBER_BLR.Text.Trim();
 
-                string SearchQuery = "SELECT 도서.고유번호, 도서.도서이름, 도서.저자, 도서.출판사, 대출.대출번호, 회원.이름, 회원.아이디, 대출.대출일, 대출.예정반납일 " +
+                string SearchQuery = "SELECT 도서.고유번호, 도서.도서이름, 도서.저자, 도서.출판사, 대출.대출번호, 회원.이름, 회원.아이디, 대출.대출일, 대출.예정반납일, 대출.연체여부 " +
                                      "FROM 대출 " +
                                      "INNER JOIN 회원 ON 대출.아이디 = 회원.아이디 " +
                                      "RIGHT OUTER JOIN 도서 ON 대출.고유번호 = 도서.고유번호 WHERE 1=1";

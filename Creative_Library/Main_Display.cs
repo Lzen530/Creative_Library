@@ -104,6 +104,7 @@ namespace Creative_Library
                         MessageBox.Show("일반 회원으로 로그인되었습니다.");
                         // 일반 사용자인 경우, 사용자 화면으로 이동
                         User_Main_Display UMD = new User_Main_Display(ID.Text);
+                        UMD.Location = new Point(0, 0);
                         UMD.Show();
                         this.Hide();
                     }
@@ -112,6 +113,7 @@ namespace Creative_Library
                         MessageBox.Show("관리자로 로그인되었습니다.");
                         // 관리자인 경우, 관리자 화면으로 이동
                         Admin_Main_Display AMD = new Admin_Main_Display();
+                        AMD.Location = new Point(0, 0);
                         AMD.Show();
                         this.Hide();
                     }
@@ -120,6 +122,7 @@ namespace Creative_Library
                         MessageBox.Show("알바로 로그인되었습니다.");
                         // 알바인 경우, 알바생 화면으로 이동
                         Book_Loan_Return AlMD = new Book_Loan_Return();
+                        AlMD.Location = new Point(0, 0);
                         AlMD.Show();
                         this.Hide();
                     }
@@ -139,6 +142,7 @@ namespace Creative_Library
         private void SIGNUP_Click(object sender, EventArgs e) // 회원가입
         {
             SignUp SU = new SignUp();
+            SU.Location = new Point(0, 0);
             SU.Show();
         }
     }

@@ -204,7 +204,6 @@ namespace Creative_Library
             // 
             // INSERT_AMD
             // 
-            this.INSERT_AMD.Enabled = false;
             this.INSERT_AMD.Location = new System.Drawing.Point(629, 358);
             this.INSERT_AMD.Name = "INSERT_AMD";
             this.INSERT_AMD.Size = new System.Drawing.Size(71, 31);
@@ -215,7 +214,6 @@ namespace Creative_Library
             // 
             // UPDATE_AMD
             // 
-            this.UPDATE_AMD.Enabled = false;
             this.UPDATE_AMD.Location = new System.Drawing.Point(704, 358);
             this.UPDATE_AMD.Name = "UPDATE_AMD";
             this.UPDATE_AMD.Size = new System.Drawing.Size(70, 31);
@@ -226,7 +224,6 @@ namespace Creative_Library
             // 
             // DELETE_AMD
             // 
-            this.DELETE_AMD.Enabled = false;
             this.DELETE_AMD.Location = new System.Drawing.Point(780, 358);
             this.DELETE_AMD.Name = "DELETE_AMD";
             this.DELETE_AMD.Size = new System.Drawing.Size(70, 31);

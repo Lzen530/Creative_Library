@@ -211,6 +211,8 @@ namespace Creative_Library
                         command.ExecuteNonQuery();
                     }
 
+                    MessageBox.Show("성공적으로 수정되었습니다.");
+
                     // 6. 데이터그리드뷰 업데이트
                     // 데이터를 다시 가져와서 데이터그리드뷰에 반영
                     LoadDataIntoDataGridView();
@@ -251,6 +253,8 @@ namespace Creative_Library
 
                         command.ExecuteNonQuery();
                     }
+
+                    MessageBox.Show("성공적으로 삭제되었습니다.");
 
                     // 4. 데이터그리드뷰 업데이트
                     // 데이터를 다시 가져와서 데이터그리드뷰에 반영
