@@ -20,11 +20,6 @@ namespace Creative_Library
             InitializeComponent();
         }
 
-        private void SignUp_Load(object sender, EventArgs e)
-        {
-            // 지우면 오류
-        }
-
         private void ID_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

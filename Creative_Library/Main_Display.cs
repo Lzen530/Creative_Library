@@ -22,11 +22,6 @@ namespace Creative_Library
         // MySQL 연결 문자열
         string connectionString = "Server=localhost; Database=회원; Uid=Lzen; Pwd=!fmwps530^^;";
 
-        private void Main_Display_Load(object sender, EventArgs e)
-        {
-            // 지우지 말 것.
-        }
-
         private void BACK_Click(object sender, EventArgs e) // 뒤로가기
         {
             Not_User_Search_Book NUSB = new Not_User_Search_Book();

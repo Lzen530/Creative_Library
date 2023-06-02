@@ -169,7 +169,6 @@ namespace Creative_Library
             this.Controls.Add(this.label1);
             this.Name = "SignUp";
             this.Text = "SignUp";
-            this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

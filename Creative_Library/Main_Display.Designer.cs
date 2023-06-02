@@ -132,7 +132,6 @@ namespace Creative_Library
             this.KeyPreview = true;
             this.Name = "Main_Display";
             this.Text = "Main_Display";
-            this.Load += new System.EventHandler(this.Main_Display_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
