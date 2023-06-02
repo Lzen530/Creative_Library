@@ -152,10 +152,10 @@ namespace Creative_Library
 
                     // 2. 데이터 가져오기
                     // 바뀌어야할 정보1
-                    string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
+                    string booknumber_index = rowIndex.Cells["고유번호"].Value.ToString();
 
                     // 바꿀 정보 4
-                    string booknumber = BOOKNUMBER_AMD.Text;
+                    string booknumber_text = BOOKNUMBER_AMD.Text;
                     string bookname = BOOKNAME_AMD.Text;
                     string author = AUTHOR_AMD.Text;
                     string publisher = PUBLISHER_AMD.Text;
@@ -165,29 +165,9 @@ namespace Creative_Library
 
                     // 4. 예외 처리
                     // 고유번호는 고유한 하나의 정보만을 가질 수 있기에 이미 존재하는 고유번호로 수정하려
-                    // 시도하면 "이미 존재하는 고유번호입니다." 라는 메시지가 나와야한다.
+                    // 시도하면 "이미 중복되는 고유번호입니다." 라는 메시지가 나와야한다.
 
-                    if (bookNumber == booknumber)
-                    {
-                        string QueryBookNumber = "SELECT count(*) FROM 도서 WHERE 고유번호 = @booknumber";
-
-                        using (MySqlConnection connection = new MySqlConnection(connectionstring))
-                        {
-                            connection.Open();
-
-                            MySqlCommand command1 = new MySqlCommand(QueryBookNumber, connection);
-                            command1.Parameters.AddWithValue("@BookNumber", booknumber);
-
-                            int duplicateCount = Convert.ToInt32(command1.ExecuteScalar());
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("이미 존재하는 고유번호입니다.");
-                        return;
-                    }
-                    
-                    if (string.IsNullOrEmpty(booknumber) || string.IsNullOrEmpty(bookname) || string.IsNullOrEmpty(author) || string.IsNullOrEmpty(publisher))
+                    if (string.IsNullOrEmpty(booknumber_text) || string.IsNullOrEmpty(bookname) || string.IsNullOrEmpty(author) || string.IsNullOrEmpty(publisher))
                     {
                         MessageBox.Show("수정할 도서의 정보가 부족합니다.");
                         return;
@@ -201,12 +181,38 @@ namespace Creative_Library
                     {
                         connection.Open();
 
+                        // 이미 존재하는 고유번호로 수정하려 시도할때 "이미 존재하는 고유번호로 수정할 수 없습니다."라는 메시지 박스 출력
+                        string numberquery = "SELECT 고유번호 FROM 도서 WHERE 고유번호 = @booknumber";
+                        MySqlCommand numbercommand = new MySqlCommand(numberquery, connection);
+                        numbercommand.Parameters.AddWithValue("@booknumber", booknumber_text);
+                        string booknumber_command = "";
+                        using (MySqlDataReader reader = numbercommand.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                booknumber_command = reader["고유번호"].ToString();
+                            }
+                        }
+                        if(booknumber_index == booknumber_text)
+                        {
+                            // 본인의 고유번호인 경우 그냥 진행
+                        }
+                        else if(booknumber_command == booknumber_text)
+                        {   // 본인의 고유번호가 아니지만, 이미 데이터베이스에 존재하는 고유번호인 경우 예외 처리
+                            MessageBox.Show("이미 존재하는 고유번호로 수정할 수 없습니다.");
+                            return;
+                        }
+                        else
+                        {
+                            // 존재하지 않는 고유번호인 경우 그냥 진행
+                        }
+
                         MySqlCommand command = new MySqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@고유번호", booknumber);
+                        command.Parameters.AddWithValue("@고유번호", booknumber_text);
                         command.Parameters.AddWithValue("@도서이름", bookname);
                         command.Parameters.AddWithValue("@저자", author);
                         command.Parameters.AddWithValue("@출판사", publisher);
-                        command.Parameters.AddWithValue("@bookNumber", bookNumber);
+                        command.Parameters.AddWithValue("@bookNumber", booknumber_index);
 
                         command.ExecuteNonQuery();
                     }
@@ -240,13 +246,46 @@ namespace Creative_Library
                     // 2. 데이터 가져오기
                     string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
 
-                    // 3. 삭제 버튼 이벤트 처리
+                    // 3. 예외처리
+                    // 존재하지 않은 도서는 삭제할 수 없다.
+                    
+
+
+                    // 4. 삭제 버튼 이벤트 처리
                     // 선택한 행의 데이터를 데이터베이스에서 삭제
                     string query = "DELETE FROM 도서 WHERE 고유번호 = @고유번호";
 
                     using (MySqlConnection connection = new MySqlConnection(connectionstring))
                     {
                         connection.Open();
+
+                        string loanquery = "SELECT 대출.연체여부 FROM 도서, 대출 WHERE 도서.고유번호 = 대출.고유번호 AND 도서.고유번호 = @booknumber";
+                        MySqlCommand loancommand = new MySqlCommand(loanquery, connection);
+                        loancommand.Parameters.AddWithValue("@booknumber", bookNumber);
+                        string delinquency = "";
+                        using (MySqlDataReader reader = loancommand.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                delinquency = reader["연체여부"].ToString();
+                            }
+                        }
+
+                        // 대여중인 도서는 삭제할 수 없다.
+                        if (delinquency == "X")
+                        {
+                            MessageBox.Show("현재 대출중인 도서는 삭제할 수 없습니다.");
+                            return;
+                        }
+                        else if (delinquency == "O")
+                        {
+                            MessageBox.Show("현재 대출중인 도서는 삭제할 수 없습니다.");
+                            return;
+                        }
+                        else
+                        {
+
+                        }
 
                         MySqlCommand command = new MySqlCommand(query, connection);
                         command.Parameters.AddWithValue("@고유번호", bookNumber);
@@ -256,7 +295,7 @@ namespace Creative_Library
 
                     MessageBox.Show("성공적으로 삭제되었습니다.");
 
-                    // 4. 데이터그리드뷰 업데이트
+                    // 5. 데이터그리드뷰 업데이트
                     // 데이터를 다시 가져와서 데이터그리드뷰에 반영
                     LoadDataIntoDataGridView();
                 }

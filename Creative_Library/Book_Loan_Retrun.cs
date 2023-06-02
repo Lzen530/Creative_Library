@@ -83,6 +83,7 @@ namespace Creative_Library
                     DataGridViewRow rowIndex = dataGridView1.SelectedRows[0];
 
                     string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
+                    string userID = rowIndex.Cells["아이디"].Value.ToString();
 
                     MySqlConnection connection = new MySqlConnection(connectionstring);
                     connection.Open();
@@ -92,23 +93,66 @@ namespace Creative_Library
                     string loandate = LOANDATE_BLR.Text.Trim();
 
                     // 2. 예외 처리
-                    // 2-1. 이미 대출한 도서를 또 대출하는 경우
-
-
-                    // 2-2. 입력한 도서의 정보가 부족할 경우
+                    // 2-1. 입력한 정보가 부족할 경우
                     if (string.IsNullOrEmpty(userid) || string.IsNullOrEmpty(loandate))
                     {
                         MessageBox.Show("전부 입력되지 않았습니다.");
                         return;
                     }
 
-                    // 2-3 입력한 대출일이 올바른 형식으로 입력되지 않은 경우
+                    // 2-2. 이미 대출한 도서를 또 대출하는 경우
+                    if (userID != "")
+                    {
+                        MessageBox.Show("이미 대출한 도서는 또 대출할 수 없습니다.");
+                        return;
+                    }
+
+                    // 2-3 존재하지 않는 회원의 아이디를 입력한 경우
+                    string idquery = "SELECT 아이디 FROM 회원 WHERE 아이디 = @userid";
+                    MySqlCommand idcommand = new MySqlCommand(idquery, connection);
+                    idcommand.Parameters.AddWithValue("@userid", userid);
+                    string USERID = "";
+                    using (MySqlDataReader reader = idcommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            USERID = reader["아이디"].ToString();
+                        }
+                    }
+                    if (USERID != userid)
+                    {
+                        MessageBox.Show("존재하지 않는 회원입니다.");
+                        return;
+                    }
+
+
+                    // 2-4 입력한 대출일이 올바른 형식으로 입력되지 않은 경우
                     DateTime loanDate;
                     if (!DateTime.TryParse(loandate, out loanDate))
                     {// DateTime 형식으로 변환 시도. 성공시 true 결과는 out으로, 실패시 false.
                         MessageBox.Show("대출일은 2023-01-01 형식으로 입력해주세요.");
                         return;
                     }
+
+                    // 2-5 해당 회원이 이미 대출되어있는 경우
+                    string loanuserquery = "SELECT 아이디 FROM 대출 WHERE 아이디 = @userid";
+                    MySqlCommand loanusercommand = new MySqlCommand(loanuserquery, connection);
+                    loanusercommand.Parameters.AddWithValue("@userid", userID);
+                    string loanuserid = "";
+                    using (MySqlDataReader reader = loanusercommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            loanuserid = reader["아이디"].ToString();
+                        }
+                    }
+                    if (loanuserid == userID)
+                    {
+                        MessageBox.Show("이미 대출중인 회원입니다.");
+                        return;
+                    }
+
+
                     string LoanDate = loanDate.ToString("yyyy-MM-dd");
 
                     // 3. 데이터 추가
@@ -151,6 +195,14 @@ namespace Creative_Library
 
                     // 2. 데이터 가져오기
                     string bookNumber = rowIndex.Cells["고유번호"].Value.ToString();
+                    string userid = rowIndex.Cells["아이디"].Value.ToString();
+
+
+                    if (userid == "")
+                    {
+                        MessageBox.Show("대출하지 않은 도서는 반납할 수 없습니다.");
+                        return;
+                    }
 
                     // 3. 삭제 버튼 이벤트 처리
                     // 선택한 행의 데이터를 데이터베이스에서 삭제

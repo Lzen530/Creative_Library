@@ -53,6 +53,7 @@ namespace Creative_Library
 
             MD.Location = new Point(0, 0);
             MD.Show();
+            this.Hide();
         }
 
         private void SEARCH_BOOKNAME_GUEST_KeyDown(object sender, KeyEventArgs e)

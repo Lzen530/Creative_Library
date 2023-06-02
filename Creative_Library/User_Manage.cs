@@ -103,7 +103,26 @@ namespace Creative_Library
                     // 2. 데이터 가져오기
                     string userID = rowIndex.Cells["아이디"].Value.ToString();
 
-                    // 3. 삭제 버튼 이벤트 처리
+                    string role = rowIndex.Cells["역할"].Value.ToString();
+
+
+                    // 3. 예외 처리
+                    if (role == "admin")
+                    {
+                        MessageBox.Show("관리자는 삭제할 수 없습니다.");
+                        return;
+                    }
+                    else if (role == "alba")
+                    {
+                        MessageBox.Show("알바는 삭제할 수 없습니다.\n권한을 변경하고 삭제해주세요.");
+                        return;
+                    }
+                    else
+                    {
+                        
+                    }
+
+                    // 4. 삭제 버튼 이벤트 처리
                     // 선택한 행의 데이터를 데이터베이스에서 삭제
                     string query = "DELETE FROM 회원 WHERE 아이디 = @아이디";
 
@@ -111,13 +130,42 @@ namespace Creative_Library
                     {
                         connection.Open();
 
+                        // SELECT 연체여부 FROM 대출,회원 WHERE 아이디 = @userid
+                        string delinquencyquery = "SELECT 연체여부 FROM 대출, 회원 WHERE 대출.아이디 = 회원.아이디 AND 대출.아이디 = @userid";
+                        MySqlCommand delinquencycommand = new MySqlCommand(delinquencyquery, connection);
+                        delinquencycommand.Parameters.AddWithValue("@userid", userID);
+                        string delinquency = "";
+                        using (MySqlDataReader reader = delinquencycommand.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                delinquency = reader["연체여부"].ToString();
+                            }
+                        }
+
+                        if (delinquency == "X")
+                        {
+                            MessageBox.Show("현재 대출중인 회원은 삭제할 수 없습니다.");
+                            return;
+                        }
+                        else if (delinquency == "O")
+                        {
+                            MessageBox.Show("현재 대출중인 회원은 삭제할 수 없습니다.");
+                            return;
+                        }
+                        else
+                        {
+
+                        }
+
                         MySqlCommand command = new MySqlCommand(query, connection);
                         command.Parameters.AddWithValue("@아이디", userID);
 
                         command.ExecuteNonQuery();
+                        MessageBox.Show("선택한 회원이 삭제되었습니다.");
                     }
 
-                    // 4. 데이터그리드뷰 업데이트
+                    // 5. 데이터그리드뷰 업데이트
                     // 데이터를 다시 가져와서 데이터그리드뷰에 반영
                     LoadDataIntoDataGridView();
                 }
@@ -152,9 +200,17 @@ namespace Creative_Library
                     // 가져온 값을 사용하여 데이터 수정 작업 수행 
 
                     // 4. 예외 처리
+                    // 변경할 비밀번호를 입력하지 않은 경우
                     if (string.IsNullOrEmpty(password))
                     {
-                        MessageBox.Show("바꿀 비밀번호를 입력하지 않았습니다.");
+                        MessageBox.Show("변경할 비밀번호를 입력하지 않았습니다.");
+                        return;
+                    }
+
+                    // 비밀번호를 형식에 맞춰서 입력하지 않은 경우
+                    if (password.Length < 8 || password.Length > 32 || !password.Any(char.IsDigit) || !password.Any(char.IsLetter) || !password.Any(char.IsPunctuation))
+                    {
+                        MessageBox.Show("비밀번호는 8자 ~ 32자 사이의 영문자, 숫자, 특수문자가 모두 포함되어야 합니다.");
                         return;
                     }
 
